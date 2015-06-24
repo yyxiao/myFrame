@@ -1,0 +1,1797 @@
+.global-nav .bn-more span {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: baseline
+}
+
+.global-nav .arrow {
+	position: relative;
+	top: -2px;
+	left: 2px;
+	border-width: 3px 3px 0;
+	border-color: #d5d5d5 transparent transparent transparent;
+	border-style: solid dashed dashed dashed;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0
+}
+
+.global-nav a:hover .arrow {
+	*top: 0;
+	border-color: #fff transparent transparent transparent
+}
+
+.global-nav .more-active {
+	position: relative;
+	z-index: 10
+}
+
+.global-nav .more-active a:link, .global-nav .more-active a:visited {
+	color: #369
+}
+
+.global-nav .more-active .arrow {
+	border-color: #fff transparent transparent transparent
+}
+
+.global-nav .more-active .bn-more span {
+	color: #fff
+}
+
+.global-nav .more-active .more-items {
+	display: block;
+	padding: 10px 0;
+	_width: 0;
+	border: 1px solid #e6e6e6;
+	background: #fff;
+	white-space: nowrap;
+	top: 28px
+}
+
+.global-nav .more-active .more-items table, .global-nav .more-active .more-items td
+	{
+	width: 100%;
+	white-space: nowrap;
+	border-collapse: collapse
+}
+
+.global-nav .more-active .more-items li {
+	display: block
+}
+
+.global-nav .more-active .more-items a {
+	display: block;
+	padding: 0 20px;
+	line-height: 28px
+}
+
+.global-nav .more-active .more-items a:link, .global-nav .more-active .more-items a:visited
+	{
+	color: #3d3d3d
+}
+
+.global-nav .more-active .more-items a:hover {
+	color: #3d3d3d;
+	background-color: #f6f6f6
+}
+
+.global-nav .more-items {
+	display: none;
+	position: absolute;
+	left: 0
+}
+
+.global-nav {
+	height: 28px;
+	color: #d5d5d5;
+	background-color: #545652;
+	min-width: 950px
+}
+
+.global-nav a:link, .global-nav a:visited, .global-nav a:hover,
+	.global-nav a:active {
+	color: #d5d5d5
+}
+
+.global-nav a:hover, .global-nav a:active {
+	color: #fff;
+	background-color: transparent
+}
+
+.global-nav .global-nav-items {
+	font-size: 0
+}
+
+.global-nav .global-nav-items li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	line-height: 28px;
+	font-size: 12px;
+	vertical-align: baseline
+}
+
+.global-nav .global-nav-items a {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	padding: 0 12px;
+	height: 28px
+}
+
+.global-nav .top-nav-info {
+	float: right;
+	margin: 0 12px 0 0;
+	line-height: 28px
+}
+
+.global-nav .top-nav-info ul, .global-nav .top-nav-info li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1
+}
+
+.global-nav .top-nav-info a {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	margin: 0;
+	padding: 0 12px;
+	height: 28px
+}
+
+.global-nav .nav-user-account .more-items {
+	left: auto;
+	right: 6px
+}
+
+.global-nav .more-active .lnk-remind:link, .global-nav .more-active .lnk-remind:visited,
+	.global-nav .more-active .lnk-remind:hover, .global-nav .more-active .lnk-remind:active
+	{
+	color: #fff
+}
+
+.global-nav-a .bd {
+	max-width: 1600px;
+	margin: 0 auto
+}
+
+.global-nav-b .bd {
+	max-width: 1440px;
+	margin: 0 auto
+}
+
+.global-nav .top-nav-reminder {
+	position: relative;
+	float: right;
+	margin-right: 5px;
+	line-height: 28px
+}
+
+.global-nav .top-nav-reminder a {
+	position: relative
+}
+
+.global-nav .top-nav-reminder .lnk-remind {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	padding: 0 12px;
+	height: 28px
+}
+
+.global-nav .top-nav-reminder .num {
+	position: absolute;
+	top: 4px;
+	*top: 0;
+	left: 3em;
+	padding: 0 3px;
+	margin-left: 5px;
+	color: #fff;
+	line-height: 1.5;
+	background-color: #f7996d;
+	*margin-top: 4px
+}
+
+.global-nav .top-nav-reminder .num i {
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -9px;
+	top: 50%;
+	margin-top: -6px;
+	line-height: 0;
+	border-color: transparent #f7996d transparent transparent;
+	border-style: dashed solid dashed dashed;
+	border-width: 6px 6px 3px 5px;
+	pointer-events: none
+}
+
+.global-nav .top-nav-reminder .more-items {
+	position: absolute;
+	z-index: 999;
+	padding: 0;
+	width: 280px;
+	left: -125px;
+	top: 28px;
+	border: 1px solid #e6e6e6;
+	background: #fff;
+	white-space: normal;
+	word-wrap: break-word
+}
+
+.global-nav .top-nav-reminder .more-items a {
+	display: inline;
+	padding: 0;
+	line-height: inherit
+}
+
+.global-nav .top-nav-reminder .more-items a:link {
+	color: #369
+}
+
+.global-nav .top-nav-reminder .more-items a:visited {
+	color: #669
+}
+
+.global-nav .top-nav-reminder .more-items a:hover {
+	color: #fff;
+	background-color: #039
+}
+
+.global-nav .top-nav-reminder .more-items a:active {
+	color: #fff;
+	background-color: #f93
+}
+
+.global-nav .top-nav-reminder .more-items .bd {
+	padding-top: 16px;
+	color: #3e3e3e;
+	line-height: 1.5
+}
+
+.global-nav .top-nav-reminder .more-items .bd p {
+	padding: 0 15px 13px 15px;
+	border-bottom: 1px solid #f0f0f0
+}
+
+.global-nav .top-nav-reminder .more-items .ft a {
+	display: block;
+	width: 100%;
+	padding: 4px 0;
+	text-align: center;
+	background-color: #fafafa
+}
+
+.global-nav .top-nav-reminder .more-items .ft a:hover, .global-nav .top-nav-reminder .more-items .ft a:active
+	{
+	background-color: #f5f5f5;
+	color: #369
+}
+
+.global-nav .top-nav-reminder .more-items p {
+	margin: 0;
+	color: #999
+}
+
+.global-nav .top-nav-reminder .more-items li {
+	overflow: hidden;
+	zoom: 1;
+	padding: 13px 15px;
+	border-bottom: 1px solid #f0f0f0
+}
+
+.global-nav .top-nav-reminder .more-items li .pic {
+	float: left;
+	margin-right: 8px
+}
+
+.global-nav .top-nav-reminder .more-items li .content {
+	width: auto;
+	overflow: hidden;
+	zoom: 1
+}
+
+.global-nav .top-nav-reminder .more-items li .content a {
+	line-height: 1.4
+}
+
+.global-nav .top-nav-reminder .more-items li .item-req {
+	padding: 0;
+	border: 0
+}
+
+.global-nav .top-nav-reminder .more-items li .item-req .ops {
+	width: 49px;
+	float: right;
+	*display: inline;
+	position: static;
+	overflow: hidden;
+	color: #aaa
+}
+
+.global-nav .top-nav-reminder .more-items li .item-req .ops a:link,
+	.global-nav .top-nav-reminder .more-items li .item-req .ops a:visited,
+	.global-nav .top-nav-reminder .more-items li .item-req .ops a:hover,
+	.global-nav .top-nav-reminder .more-items li .item-req .ops a:active {
+	color: #aaa
+}
+
+.global-nav .top-nav-reminder .more-items li .item-req .ops a:hover,
+	.global-nav .top-nav-reminder .more-items li .item-req .ops a:active {
+	background-color: #aaa;
+	color: #fff
+}
+
+.global-nav .top-nav-reminder .more-items li .unread {
+	background-color: transparent
+}
+
+.global-nav .top-nav-reminder .more-items li .new-reply-item {
+	overflow: hidden
+}
+
+.global-nav .top-nav-reminder .more-items li .new-reply-item .content {
+	float: left;
+	width: 186px
+}
+
+.top-nav-reminder.more-active {
+	color: #fff
+}
+
+.top-nav-reminder.more-active .num {
+	z-index: 1000
+}
+
+.top-nav-reminder.more-active .more-items {
+	display: block;
+	z-index: 999
+}
+
+body #db-pay-tips {
+	top: 136px
+}
+
+.perf-metric {
+	position: absolute;
+	margin-left: -240px
+}
+
+.global-nav .top-nav-doubanapp {
+	position: relative;
+	float: right;
+	margin-right: 5px;
+	line-height: 28px
+}
+
+.global-nav .top-nav-doubanapp .lnk-doubanapp {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	padding: 0 8px 0 22px;
+	height: 28px;
+	background:
+		url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		no-repeat;
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-position: 7px 5px
+}
+
+.global-nav .top-nav-doubanapp .more-items {
+	padding: 10px 20px;
+	left: -1px;
+	width: 211px;
+	border-top: 0;
+	background: #f6f6f6;
+	color: #666;
+	font-size: 15px;
+	line-height: 1.62;
+	font-weight: bold;
+	text-align: center
+}
+
+.global-nav .top-nav-doubanapp .more-items .slogan {
+	padding-top: 65px;
+	margin: 10px 0 16px;
+	color: #13bc39;
+	background:
+		url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		no-repeat;
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-position: 73px -300px
+}
+
+.global-nav .top-nav-doubanapp .more-items .qrcode {
+	float: left;
+	width: 77px;
+	padding-top: 80px;
+	margin: 0 20px 0 0;
+	background:
+		url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		no-repeat;
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-position: 0 -195px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999
+}
+
+.global-nav .top-nav-doubanapp .download {
+	font-size: 0;
+	overflow: hidden;
+	*zoom: 1
+}
+
+.global-nav .top-nav-doubanapp .download a {
+	display: block;
+	width: 114px;
+	height: 35px;
+	padding: 0;
+	margin: 0 auto;
+	background:
+		url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		no-repeat;
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-position: 0 -70px
+}
+
+.global-nav .top-nav-doubanapp .download .download-android {
+	margin-top: 8px;
+	background-position: 0 -130px
+}
+
+#doubanapp-tip {
+	display: none;
+	position: absolute;
+	width: 192px;
+	top: 28px;
+	border: 1px solid;
+	padding: 0 10px;
+	color: #13bc39;
+	background: #fff;
+	z-index: 10
+}
+
+#doubanapp-tip:after {
+	display: none\9;
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: 35px;
+	height: 7px;
+	width: 7px;
+	border: 1px solid #13bc39;
+	border-width: 1px 1px 0 0;
+	background: #fff;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+
+#doubanapp-tip .tip-link:link, #doubanapp-tip .tip-link:visited,
+	#doubanapp-tip .tip-link:hover, #doubanapp-tip .tip-link:active {
+	color: #13bc39;
+	background: #fff
+}
+
+#doubanapp-tip .tip-close {
+	position: absolute;
+	right: 6px;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center
+}
+
+#doubanapp-tip .tip-close:hover {
+	color: #fff;
+	background: #d5d5d5
+}
+
+.top-nav-doubanapp.more-active .lnk-doubanapp:link, .top-nav-doubanapp.more-active .lnk-doubanapp:visited,
+	.top-nav-doubanapp.more-active .lnk-doubanapp:hover, .top-nav-doubanapp.more-active .lnk-doubanapp:active
+	{
+	background:
+		url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		no-repeat;
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/shire/cb11ed26547a6366febcdc9207f1c1b0f8dbb6f6/pics/nav/nav_doubanapp_5.png)
+		1x,
+		url(http://img3.douban.com/f/shire/1c2bebfb41d68ba14ade0d2d5f32f8f111a00aba/pics/nav/nav_doubanapp_5@2x.png)
+		2x);
+	background-position: 7px -30px;
+	background-color: #f6f6f6;
+	color: #8b8b8b
+}
+
+.nav {
+	width: 100%;
+	min-width: 950px;
+	overflow: hidden;
+	zoom: 1;
+	margin-bottom: 40px
+}
+
+.nav .nav-wrap {
+	border-bottom: 1px solid #e5ebe4
+}
+
+.nav .nav-primary, .nav .nav-secondary {
+	width: 950px;
+	margin: 0 auto;
+	padding-bottom: 0;
+	overflow: hidden;
+	zoom: 1
+}
+
+.nav .nav-primary {
+	position: relative;
+	padding: 10px 0 5px;
+	overflow: hidden;
+	zoom: 1
+}
+
+.nav .nav-logo {
+	float: left;
+	height: 56px;
+	width: 145px;
+	margin: 0 13px 0 0;
+	background:
+		url("http://img3.douban.com/f/shire/8308f83ca66946299fc80efb1f10ea21f99ec2a5/pics/nav/lg_main_a11_1.png")
+		no-repeat 0 12px;
+	background-image: -webkit-image-set(url("http://img3.douban.com/f/shire/8308f83ca66946299fc80efb1f10ea21f99ec2a5/pics/nav/lg_main_a11_1.png")
+		1x,
+		url("http://img3.douban.com/f/shire/8977fa054324c4c7f565447b003ebf75e9b4f9c6/pics/nav/lg_main@2x.png")
+		2x);
+	background-image: -moz-image-set(url("http://img3.douban.com/f/shire/8308f83ca66946299fc80efb1f10ea21f99ec2a5/pics/nav/lg_main_a11_1.png")
+		1x,
+		url("http://img3.douban.com/f/shire/8977fa054324c4c7f565447b003ebf75e9b4f9c6/pics/nav/lg_main@2x.png")
+		2x);
+	background-image: -ms-image-set(url("http://img3.douban.com/f/shire/8308f83ca66946299fc80efb1f10ea21f99ec2a5/pics/nav/lg_main_a11_1.png")
+		1x,
+		url("http://img3.douban.com/f/shire/8977fa054324c4c7f565447b003ebf75e9b4f9c6/pics/nav/lg_main@2x.png")
+		2x);
+	background-image: -o-image-set(url("http://img3.douban.com/f/shire/8308f83ca66946299fc80efb1f10ea21f99ec2a5/pics/nav/lg_main_a11_1.png")
+		1x,
+		url("http://img3.douban.com/f/shire/8977fa054324c4c7f565447b003ebf75e9b4f9c6/pics/nav/lg_main@2x.png")
+		2x)
+}
+
+.nav .nav-logo a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	line-height: 100em
+}
+
+.nav .nav-logo a:hover, .nav .nav-logo a:active {
+	background: none !important
+}
+
+.ua-iphone .nav {
+	-webkit-text-size-adjust: none
+}
+
+.nav-search {
+	position: relative;
+	overflow: hidden;
+	zoom: 1;
+	padding: 10px 0 15px 0
+}
+
+.nav-search input {
+	-webkit-appearance: none;
+	border: 0;
+	background: transparent
+}
+
+.nav-search label {
+	position: absolute;
+	left: 11px;
+	top: 10px;
+	line-height: 30px;
+	cursor: text;
+	color: #bbb;
+	width: auto
+}
+
+.nav-search ::-webkit-input-placeholder {
+	color: #bbb
+}
+
+.nav-search :-moz-placeholder {
+	color: #bbb
+}
+
+.nav-search ::-moz-placeholder {
+	color: #bbb
+}
+
+.nav-search :-ms-input-placeholder {
+	color: #bbb
+}
+
+.nav-search .inp {
+	float: left;
+	width: 470px;
+	height: 34px;
+	text-align: center;
+	_margin-right: -3px;
+	cursor: text;
+	background:
+		url("http://img3.douban.com/f/shire/d45aaa7569335285e298dd7f3c045c8b364a19de/pics/nav1/nav_bg_a1.png")
+		no-repeat 0 0
+}
+
+.nav-search .inp input {
+	background: #fff;
+	width: 96%;
+	margin: 0;
+	text-align: left;
+	height: 30px;
+	padding-left: 10px;
+	height: 28px\9;
+	line-height: 28px\9;
+	outline: 0
+}
+
+.nav-search legend {
+	display: none
+}
+
+.nav-search fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	position: static
+}
+
+.nav-search .inp-btn {
+	position: relative;
+	left: -1px;
+	*top: -1px;
+	width: 37px;
+	height: 34px;
+	zoom: 1;
+	overflow: hidden
+}
+
+.nav-search .inp-btn input {
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	padding: 35px 0 0 0;
+	overflow: hidden;
+	background:
+		url("http://img3.douban.com/f/shire/d45aaa7569335285e298dd7f3c045c8b364a19de/pics/nav1/nav_bg_a1.png")
+		no-repeat 0 -40px;
+	color: transparent;
+	cursor: pointer
+}
+
+.nav-search .inp-btn input:hover {
+	background-position: -40px -40px
+}
+
+.nav-search .inp-btn input:active {
+	background-position: 0 -40px
+}
+
+.nav-secondary {
+	width: 100%;
+	zoom: 1
+}
+
+.nav-secondary:after {
+	content: '\0020';
+	display: block;
+	clear: both
+}
+
+.nav-secondary img {
+	vertical-align: middle;
+	margin-right: 4px
+}
+
+.nav-secondary ul {
+	margin: 9px 0
+}
+
+.nav-secondary li {
+	display: inline;
+	margin-right: 30px
+}
+
+.nav-secondary .nav-items {
+	float: none;
+	*padding-bottom: 8px;
+	zoom: 1;
+	font-size: 13px
+}
+
+.nav-secondary .nav-items li {
+	_float: left;
+	_display: inline
+}
+
+#db-nav-book .nav-search .inp {
+	background-image:
+		url("http://img3.douban.com/f/shire/d45aaa7569335285e298dd7f3c045c8b364a19de/pics/nav1/nav_bg_a1.png")
+}
+
+#db-nav-book .nav-search .inp-btn input {
+	background-image:
+		url("http://img3.douban.com/f/shire/d45aaa7569335285e298dd7f3c045c8b364a19de/pics/nav1/nav_bg_a1.png")
+}
+
+#db-nav-movie .nav-search .inp {
+	background-image:
+		url("http://img3.douban.com/f/shire/44552ac9f592ad9d2ef5c8ae708533990e94b605/pics/nav1/nav_mv_bg.png")
+}
+
+#db-nav-movie .nav-search .inp-btn input {
+	background-image:
+		url("http://img3.douban.com/f/shire/44552ac9f592ad9d2ef5c8ae708533990e94b605/pics/nav1/nav_mv_bg.png")
+}
+
+#db-nav-group .nav-search .inp {
+	background-image:
+		url("http://img3.douban.com/f/shire/44552ac9f592ad9d2ef5c8ae708533990e94b605/pics/nav1/nav_mv_bg.png")
+}
+
+#db-nav-group .nav-search .inp-btn input {
+	background-image:
+		url("http://img3.douban.com/f/shire/44552ac9f592ad9d2ef5c8ae708533990e94b605/pics/nav1/nav_mv_bg.png")
+}
+
+#db-nav-music .nav-search .inp {
+	background-image:
+		url("http://img3.douban.com/f/shire/b78a848a3825bda97797e3c1816ad3b01139aa1c/pics/nav1/nav_mu_bg.png")
+}
+
+#db-nav-music .nav-search .inp-btn input {
+	background-image:
+		url("http://img3.douban.com/f/shire/b78a848a3825bda97797e3c1816ad3b01139aa1c/pics/nav1/nav_mu_bg.png")
+}
+
+#db-nav-book {
+	background: #f6f6f1
+}
+
+#db-nav-book .nav-wrap {
+	border-color: #e9e9e2
+}
+
+#db-nav-book .nav-logo {
+	background-image:
+		url(http://img3.douban.com/f/book/2ced9ceaac293dcbe10bf8ebbaf624ced30e8fc9/pics/nav/lg_book_a11_1.png);
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/book/2ced9ceaac293dcbe10bf8ebbaf624ced30e8fc9/pics/nav/lg_book_a11_1.png)
+		1x,
+		url(http://img3.douban.com/f/book/8f7e91543b899c4cc2e85b28f7e6152729411484/pics/nav/lg_book@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/book/2ced9ceaac293dcbe10bf8ebbaf624ced30e8fc9/pics/nav/lg_book_a11_1.png)
+		1x,
+		url(http://img3.douban.com/f/book/8f7e91543b899c4cc2e85b28f7e6152729411484/pics/nav/lg_book@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/book/2ced9ceaac293dcbe10bf8ebbaf624ced30e8fc9/pics/nav/lg_book_a11_1.png)
+		1x,
+		url(http://img3.douban.com/f/book/8f7e91543b899c4cc2e85b28f7e6152729411484/pics/nav/lg_book@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/book/2ced9ceaac293dcbe10bf8ebbaf624ced30e8fc9/pics/nav/lg_book_a11_1.png)
+		1x,
+		url(http://img3.douban.com/f/book/8f7e91543b899c4cc2e85b28f7e6152729411484/pics/nav/lg_book@2x.png)
+		2x)
+}
+
+#db-nav-book a:link, #db-nav-book a:visited {
+	color: #614e3c
+}
+
+#db-nav-book a:hover, #db-nav-book a:active {
+	background-color: #614e3c;
+	color: #fff
+}
+
+#db-nav-book .nav-secondary .nav-items {
+	*padding: 0
+}
+
+.book-new-nav .entry-list-col2 li, .book-new-nav .hot-tags-col5 li,
+	.book-new-nav .entry-list-col1 li, .book-new-nav .simple-dashed-list li
+	{
+	border: 0
+}
+
+.book-new-nav .entry-list-col2 li ul li, .book-new-nav .hot-tags-col5 li ul li,
+	.book-new-nav .entry-list-col1 li ul li, .book-new-nav .simple-dashed-list li ul li
+	{
+	border: 0
+}
+
+.book-new-nav .entry-list-col2s li {
+	border: 0;
+	padding: 0 0 10px
+}
+
+.book-new-nav .simple-dashed-list, .book-new-nav .movie_show,
+	.book-new-nav .hot-tags-col5, .book-new-nav .simple-dashed-list,
+	.book-new-nav .entry-list-col1 {
+	padding-bottom: 0;
+	margin-bottom: 32px
+}
+
+.book-new-nav .notification-section {
+	background-color: #f8f8f0
+}
+
+.xbar {
+	background: 0
+}
+
+.xbar div {
+	background: 0;
+	padding-right: 0
+}
+
+.xbar a {
+	padding: 0 5px;
+	margin: 3px 0 0
+}
+
+.xbar span.now {
+	background: #9b9a8f;
+	padding: 0 10px;
+	margin: 0 5px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px
+}
+
+.xbar span.now span {
+	background: 0;
+	padding: 0;
+	color: #fff
+}
+
+.icon-new {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 17px;
+	height: 7px;
+	vertical-align: top;
+	margin-top: 2px;
+	background-repeat: no-repeat;
+	background-image:
+		url(http://img3.douban.com/f/book/92ddebb2660101d56515fbf27bf87807e4717bfb/pics/book/icon-new.png);
+	background-image: -webkit-image-set(url(http://img3.douban.com/f/book/92ddebb2660101d56515fbf27bf87807e4717bfb/pics/book/icon-new.png)
+		1x,
+		url(http://img3.douban.com/f/book/221676aa40bfb602ae43a2ba0240ed73e7b074cb/pics/book/icon-new@2x.png)
+		2x);
+	background-image: -moz-image-set(url(http://img3.douban.com/f/book/92ddebb2660101d56515fbf27bf87807e4717bfb/pics/book/icon-new.png)
+		1x,
+		url(http://img3.douban.com/f/book/221676aa40bfb602ae43a2ba0240ed73e7b074cb/pics/book/icon-new@2x.png)
+		2x);
+	background-image: -ms-image-set(url(http://img3.douban.com/f/book/92ddebb2660101d56515fbf27bf87807e4717bfb/pics/book/icon-new.png)
+		1x,
+		url(http://img3.douban.com/f/book/221676aa40bfb602ae43a2ba0240ed73e7b074cb/pics/book/icon-new@2x.png)
+		2x);
+	background-image: -o-image-set(url(http://img3.douban.com/f/book/92ddebb2660101d56515fbf27bf87807e4717bfb/pics/book/icon-new.png)
+		1x,
+		url(http://img3.douban.com/f/book/221676aa40bfb602ae43a2ba0240ed73e7b074cb/pics/book/icon-new@2x.png)
+		2x)
+}
+
+#db-nav-book {
+	position: relative;
+}
+
+.nav-srh .inp {
+	position: relative;
+	z-index: 40
+}
+
+#nav-srh-suggest {
+	position: absolute;
+	background: #fff;
+	border: 1px solid #ddd;
+	z-index: 99;
+	width: 304px
+}
+
+#nav-srh-suggest li {
+	overflow: hidden;
+	height: 24px
+}
+
+#nav-srh-suggest li.active, #nav-srh-suggest li.active a:hover {
+	background: #eee;
+	color: #666
+}
+
+#nav-srh-suggest li a {
+	height: 24px;
+	line-height: 24px;
+	color: #666;
+	display: block;
+	padding: 0 6px;
+	overflow: hidden;
+	zoom: 1
+}
+
+#nav-srh-suggest li a:active, #nav-srh-suggest li a:hover {
+	background: #fff
+}
+
+#nav-srh-suggest li a strong {
+	color: black
+}
+
+#nav-srh-suggest {
+	width: 468px;
+	margin-left: -6px;
+	margin-top: 2px;
+}
+
+#nav-srh-suggest li a {
+	padding: 0 11px;
+}
+
+.book-bubble {
+	position: fixed;
+	z-index: 999;
+	color: #666;
+	padding: 17px;
+	border: 1px solid #acacac;
+	background: #f9f9f7;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px #fdfdfd inset, 0 1px 1px #dcdbd4
+}
+
+.book-bubble a:hover {
+	color: #333
+}
+
+.book-bubble .bubble-content {
+	font-size: 12px;
+	word-wrap: break-word
+}
+
+.book-bubble .bubble-close {
+	color: #bbb;
+	position: absolute;
+	top: 8px;
+	right: 15px;
+	font-size: 21px;
+	cursor: pointer:
+}
+
+.book-bubble .bubble-close:hover {
+	color: #333
+}
+
+.book-bubble:after, .book-bubble:before {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none
+}
+
+.book-bubble:after {
+	border-right-color: #f9f9f7;
+	border-width: 7px;
+	top: 50%;
+	margin-top: -7px
+}
+
+.book-bubble:before {
+	border-right-color: #acacac;
+	border-width: 8px;
+	top: 50%;
+	margin-top: -8px
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.clearfix:before, .clearfix:after {
+	display: table;
+	content: '';
+	line-height: 0
+}
+
+.clearfix:after {
+	clear: both
+}
+
+.list-col li {
+	float: none;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top
+}
+
+.list-col2 li {
+	width: 295px
+}
+
+.list-summary {
+	font-size: 0;
+	margin-bottom: -30px
+}
+
+.list-summary li {
+	margin-bottom: 30px
+}
+
+.list-summary .cover {
+	float: left;
+	margin-right: 18px
+}
+
+.list-summary .info {
+	font-size: 12px;
+	margin-right: 20px
+}
+
+.list-summary .info p {
+	margin: 0;
+	word-wrap: break-word
+}
+
+.list-summary .title {
+	font-size: 14px;
+	height: auto;
+	margin: 0;
+	line-height: auto;
+	background: 0
+}
+
+.list-summary .extra-info {
+	color: #aaa
+}
+
+.list-summary .reviews {
+	color: #666;
+	clear: both;
+	padding-top: 15px
+}
+
+.carousel {
+	overflow: hidden;
+	position: relative;
+	width: 590px
+}
+
+.carousel .title, .carousel .author, .carousel .publisher {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.slide-list {
+	position: relative;
+	font-size: 0
+}
+
+.slide-list .slide-item {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top;
+	width: 590px
+}
+
+.slide-controls {
+	float: right;
+	margin-top: -42px
+}
+
+.slide-btns {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: middle;
+	_vertical-align: baseline;
+	line-height: 1
+}
+
+.slide-btns a:link, .slide-btns a:visited, .slide-btns a:active,
+	.slide-btns a:hover {
+	color: #fff;
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	font: 100 16px Arial;
+	text-align: center;
+	line-height: 16px;
+	margin-left: 4px;
+	outline: 0;
+	border-radius: 9px;
+	background: #9b9a8e
+}
+
+.slide-btns a:hover {
+	opacity: .8;
+	filter: alpha(opacity = 80)
+}
+
+.slide-btns .next {
+	letter-spacing: -1px
+}
+
+.ua-windows .slide-btns a {
+	font-weight: bold
+}
+
+.slide-dots {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	font-size: 0;
+	margin-right: 6px;
+	vertical-align: middle
+}
+
+.slide-dots li {
+	display: inline;
+	_background: #dfdfdf
+}
+
+.slide-dots a, .slide-dots a:hover {
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	margin-left: 8px;
+	border-radius: 5px;
+	background: #dfdfdf
+}
+
+.slide-dots a.active, .slide-dots a.active:hover {
+	background-color: #9b9a8f
+}
+
+.section {
+	margin-bottom: 50px
+}
+
+.section .list-col5 {
+	font-size: 0;
+	margin: 0 -15px 0 0
+}
+
+.section .list-col5 li {
+	width: 106px;
+	margin: 0 15px 20px 0
+}
+
+.section .list-col5 .cover {
+	margin-bottom: 12px
+}
+
+.section .list-col5 .title {
+	font-size: 12px;
+	margin-bottom: 5px;
+	line-height: 1.1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	_width: 106px
+}
+
+.section .list-col5 .info {
+	margin: 0;
+	line-height: 1
+}
+
+.section .list-col5 .price {
+	font-size: 12px;
+	color: #4b4b4b;
+	vertical-align: baseline
+}
+
+.section .list-col5 .unit {
+	font-weight: normal;
+	font-size: 12px;
+	margin-left: 2px
+}
+
+.my-collections {
+	margin-bottom: 10px
+}
+
+.ebook-area {
+	margin-bottom: 30px
+}
+
+.ui-tooltip {
+	width: 200px
+}
+
+.app-notice {
+	margin: 0;
+	padding: 0
+}
+
+.app-notice p {
+	line-height: 2.2em;
+	margin: 0
+}
+
+.notification-section {
+	background: #fff6ed;
+	color: #666;
+	margin-bottom: 2em;
+	padding: 0 10px;
+	overflow: hidden;
+	_zoom: 1
+}
+
+.notification-section p {
+	margin: .5em 0;
+	line-height: 1.5
+}
+
+.cart-notification-section {
+	margin: 14px 0
+}
+
+.apply-links {
+	margin-bottom: 30px;
+	font-size: 14px
+}
+
+.apply-links li {
+	margin-bottom: 14px
+}
+
+.apply-links .apply-editor {
+	margin-right: 27px
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+	padding-bottom: 3px;
+	margin-bottom: 16px;
+	border-bottom: 1px solid #ddd
+}
+
+h2 .link-more {
+	font: 12px Arial, Helvetica, sans-serif;
+	line-height: 150%;
+	color: #666;
+	padding-left: 10px
+}
+
+.entry-list-col2 h2 {
+	border: 0
+}
+
+.entry-list-col2 li {
+	padding-bottom: 0;
+	margin-bottom: 20px
+}
+
+.sub-section h3 {
+	color: #111;
+	font-size: 15px;
+	background: 0;
+	margin: 0 0 13px;
+	line-height: 1
+}
+
+.sub-section h3 .more-info {
+	font: 12px Arial;
+	margin-left: 10px
+}
+
+.hot-tags-col5 li {
+	padding: 0;
+	margin-bottom: 15px
+}
+
+.allstar {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: middle
+}
+
+.average-rating {
+	color: #f00;
+	font-size: 10px
+}
+
+.entry-list-col2-review {
+	font-size: 12px;
+	margin-right: 20px
+}
+
+.entry-list-col1 h2 {
+	font-weight: normal;
+	padding-bottom: 0;
+	border: 0
+}
+
+.list-promotion {
+	margin-bottom: -10px
+}
+
+.list-promotion li {
+	margin-bottom: 10px
+}
+
+.list-promotion .title {
+	font-size: 13px;
+	color: #37a;
+	margin-bottom: 5px
+}
+
+.list-promotion .intro p {
+	color: #111;
+	margin: 0;
+	word-wrap: break-word
+}
+
+.list-promotion .date {
+	width: auto
+}
+
+.list-reader li {
+	display: inline;
+	margin-right: 32px
+}
+
+.list-reader a:link, .list-reader a:visited, .list-reader a:active {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top;
+	color: #9f9d93;
+	width: 35px;
+	height: 30px;
+	text-align: center;
+	line-height: 1;
+	background:
+		url(http://img3.douban.com/f/book/02162367f11b0cb3155c9349c17815c2545dec3a/pics/book/icon-device.png)
+		no-repeat
+}
+
+.list-reader b {
+	display: block;
+	font-weight: normal;
+	background: #fff;
+	margin-top: 37px;
+	cursor: pointer
+}
+
+.list-reader a:hover {
+	opacity: .8;
+	filter: alpha(opacity = 80)
+}
+
+.list-reader a.icon-laptop:link {
+	background-position: 0 0
+}
+
+.list-reader a.icon-iphone:link, .list-reader a.icon-iphone:visited,
+	.list-reader a.icon-iphone:active {
+	background-position: 2px -46px
+}
+
+.list-reader a.icon-ipad:link, .list-reader a.icon-ipad:visited,
+	.list-reader a.icon-ipad:active {
+	background-position: 2px -94px
+}
+
+.list-reader a.icon-android:link, .list-reader a.icon-android:visited,
+	.list-reader a.icon-android:active {
+	background-position: 2px -143px
+}
+
+a.btn-close:link, a.btn-close:visited, a.btn-close:active, a.btn-close:hover
+	{
+	float: right;
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	width: 12px;
+	height: 12px;
+	line-height: 12px;
+	background: #999;
+	border-radius: 2px
+}
+
+a.btn-close:hover {
+	opacity: .8;
+	filter: alpha(opacity = 80)
+}
+
+a.link-hide:link, a.link-hide:visited, a.link-hide:active, a.link-hide:hover
+	{
+	position: absolute;
+	top: 3px;
+	right: 0;
+	_right: 40px;
+	color: #37a;
+	line-height: 1.1;
+	background: 0
+}
+
+.extra-info {
+	margin: 0;
+	color: #aaa
+}
+
+.meta-label {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	line-height: 1;
+	color: #fff;
+	padding: 2px 3px;
+	background-color: #a1a1a1
+}
+
+.more-meta {
+	display: none
+}
+
+.book-bubble {
+	padding: 12px 15px 2px
+}
+
+.book-bubble h4 {
+	font-weight: bold;
+	font-size: 15px;
+	margin: 0 0 10px;
+	padding: 0;
+	background: 0
+}
+
+.book-bubble p {
+	margin: 0 0 10px
+}
+
+.book-bubble .bubble-close {
+	display: none
+}
+
+.sub-hd h3 {
+	position: relative
+}
+
+.minibar {
+	padding: 10px 8px 8px;
+	margin-bottom: 15px;
+	background: #f5f5f5
+}
+
+.minibar h3 {
+	margin: 0;
+	font-size: 12px
+}
+
+.minibar .link-hide {
+	_right: 48px;
+	top: 0;
+	*top: 1px
+}
+
+.ua-webkit .minibar .link-hide {
+	top: 3px
+}
+
+.ua-ie9 .minibar .link-hide {
+	top: 1px
+}
+
+.ua-ie8 .minibar .link-hide {
+	top: -1px
+}
+
+.books-express .slide-item {
+	width: 605px
+}
+
+.books-express .list-express li {
+	overflow: hidden;
+	margin: 0 15px 15px 0
+}
+
+.books-express .list-express .cover {
+	width: 106px;
+	height: 158px;
+	margin-bottom: 7px;
+	overflow: hidden
+}
+
+.books-express .list-express .title {
+	font-size: 13px;
+	margin-bottom: 6px
+}
+
+.books-express .list-express .author {
+	color: #333;
+	width: 102px;
+	font-size: 12px;
+	margin-bottom: 6px
+}
+
+.books-express .list-express .info {
+	padding: 0 2px
+}
+
+.books-express .list-express .sponsor-info {
+	font-size: 12px;
+	color: #999;
+	height: 18px;
+	line-height: 19px;
+	margin: -7px 0 5px;
+	background: #f0ebc8
+}
+
+.books-express .list-express .icon-sponsor {
+	margin: 0 6px
+}
+
+.icon-sponsor {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 6px;
+	height: 8px;
+	background:
+		url(http://img3.douban.com/f/book/bd8caa4f866ba50ada776a0d5fa4ca47ab9762b9/pics/book/icon-sponsor.png)
+		no-repeat
+}
+
+.nav-vendor {
+	margin-top: -5px;
+	margin-bottom: 15px
+}
+
+.nav-vendor li {
+	color: #ccc5bf;
+	cursor: pointer;
+	margin-right: 10px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	line-height: 1;
+	padding: 5px;
+	border-radius: 2px
+}
+
+.nav-vendor li.on, .nav-vendor li:hover {
+	color: #fff;
+	background: #9b7c5e
+}
+
+.list-ranking {
+	font-size: 13px
+}
+
+.list-ranking .item {
+	overflow: hidden;
+	padding: 4px 0;
+	border-bottom: 1px dashed #ddd
+}
+
+.list-ranking .item:hover {
+	background: #f9f9f6
+}
+
+.list-ranking .item:hover .buy-button {
+	border-radius: 2px;
+	border: 1px solid #d4bea7;
+	color: #d4bea7
+}
+
+.list-ranking .rank-num {
+	float: left;
+	width: 20px;
+	text-align: center
+}
+
+.list-ranking .book-info {
+	float: left;
+	width: 223px
+}
+
+.list-ranking .author {
+	color: #666;
+	font-size: 12px;
+	min-height: 19px
+}
+
+.list-ranking .buy-button {
+	border: 1px solid transparent;
+	float: right;
+	color: #999;
+	font-size: 12px;
+	line-height: 100%;
+	padding: 6px 8px;
+	position: relative;
+	top: 8px;
+	right: 5px
+}
+
+@media ( -webkit-min-device-pixel-ratio :2) , ( min-resolution :192dpi)
+	{
+	.list-reader a:link, .list-reader a:visited, .list-reader a:active {
+		background:
+			url(http://img3.douban.com/f/book/06bc6f1888269441c3898e49d029e0659e173dfe/pics/book/icon-device@2x.png)
+			no-repeat;
+		background-size: 35px 173px
+	}
+	.icon-sponsor {
+		background:
+			url(http://img3.douban.com/f/book/03c23e629113321ccc46b97f6f5724ec422378bf/pics/book/icon-sponsor@2x.png)
+			no-repeat;
+		background-size: 6px 8px
+	}
+}
+
+.ad-placeholder {
+	overflow: hidden;
+	zoom: 1
+}
+
+.book-chart-hd span {
+	float: right;
+	line-height: 18px
+}
+
+.book-chart-hd img {
+	float: left
+}
+
+.intervenor-info {
+	background: #f7f3db;
+	margin-top: -7px;
+	margin-bottom: 7px;
+	height: 20px
+}
+
+.intervenor-info span {
+	font-size: 12px;
+	line-height: 100%;
+	color: #a29e91;
+	position: absolute;
+	top: 162px;
+	margin-left: 28px
+}
+
+.intervenor-info .jd-icon {
+	border: 0;
+	width: 16px;
+	height: 16px;
+	margin-left: 2px;
+	position: absolute;
+	top: 160px
+}
+
+.weekly-top {
+	margin-bottom: 32px
+}
+
+.hot-tags-col5 li ul li {
+	width: auto;
+}
+
+.hot-tags-col5 li ul li.tag_title {
+	display: block;
+	float: none;
+}
+
+.tag, .tag:link, .tag:visited {
+	width: auto;
+	word-break: keep-all;
+	white-space: nowrap;
+	background-color: #f5f5f5;
+	color: #37A;
+	font-size: 13px;
+	padding: 2px 11px 0;
+	display: inline-block;
+	margin: 0 3px 5px 0;
+	line-height: 20px
+}
+
+.tag:hover, .tag:active {
+	background-color: #e8e8e8;
+	color: #37A
+}
+
+.more_tag, .more_tag:link, .more_tag:visited, .more_tag:hover, .more_tag:active
+	{
+	color: #aaa;
+}

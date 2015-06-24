@@ -1,0 +1,834 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Easy Background Resize Plug-In</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.ez-bg-resize.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("body").ezBgResize({
+		img     : "image/bg31.png", // Relative path example.  You could also use an absolute url (http://...).
+		opacity : 1, // Opacity. 1 = 100%.  This is optional.
+		center  : true // Boolean (true or false). This is optional. Default is true.
+	});
+	 $(window).scroll(function () {
+            var windowHeight = $(window).scrollTop() + $(window).height();
+            var sideHeight = $(".aside").height();
+            if (windowHeight > sideHeight) {
+                $(".aside").css({
+                    "position": "fixed",
+                    right: ($("body").width() - $(".grid-16-8").width()) / 2,
+                    top: -(sideHeight - $(window).height())
+                });
+            } else {
+                $(".aside").css({
+                    "position": "static"
+                });
+            }
+        });
+        $(window).onload = function () {
+            $(window).trigger("scroll");
+        };
+        $(window).resize(function () {
+            $(window).trigger("scroll");
+        });
+});
+</script>
+ <link rel="stylesheet" href="css/47783e39ae67de90.css">
+     <link href="css/focuscarousel.css" rel="stylesheet" />
+    <script src="js/focuscarousel.js"></script>
+ <style type="text/css">
+ *{
+ margin:0px;
+ padding:0px;
+ }
+ </style>
+  <link href="css/master.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<jsp:include page="head.html" flush="true" ></jsp:include>
+<div style="clear:both;"></div>
+<div id="wrapper" style="background:#fff; padding:10px; margin-top:40px;">
+ <div id="content">
+    <div class="grid-16-8 clearfix">
+     <div class="article">
+	     <div class="container">
+        <div class="list1" style="left: -600px;">
+            <img src="image/5.jpg" alt="1" />
+            <img src="image/1.jpg" alt="1" />
+            <img src="image/2.jpg" alt="2" />
+            <img src="image/3.jpg" alt="3" />
+            <img src="image/4.jpg" alt="4" />
+            <img src="image/5.jpg" alt="5" />
+            <img src="image/1.jpg" alt="5" />
+		</div>
+        <div class="buttons">
+            <span index="1" class="on">1</span>
+            <span index="2">2</span>
+            <span index="3">3</span>
+            <span index="4">4</span>
+            <span index="5">5</span>        </div>
+        <a href="javascript:;" class="prev arrow">&lt;</a>
+        <a href="javascript:;" class="next arrow">&gt;</a>    </div>
+  <div class="section books-express ">
+    <div class="hd"> 
+  <h2 class=''>
+    <span class="">学校推荐</span>
+      <span class="link-more">
+        <a class="" href="/latest?icn=index-latestbook-all"
+          >更多»</a>
+      </span>
+  </h2>
+    </div>
+    <div class="bd">
+      <div class="carousel">
+        <div class="slide-list">
+          <ul class="list-col list-col5 list-express slide-item"> 
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我们这个时代的怕和爱">
+                <img src="http://img3.douban.com/lpic/s28044105.jpg" class=""
+                  width="106px" height="158px" alt="我们这个时代的怕和爱">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我们这个时代的怕和爱">我们这个时代的怕和爱</a>
+              </div>
+              <div class="author">
+                陈丹青  等
+              </div>
+			  <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我坚信">
+                <img src="http://img4.douban.com/lpic/s28055538.jpg" class=""
+                  width="106px" height="158px" alt="我坚信">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我坚信">我坚信</a>
+              </div>
+              <div class="author">
+                [美]奥普拉·温弗瑞（Oprah Winfrey）
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="cover">
+              <a href="#" title="支付战争">
+                <img src="http://img3.douban.com/lpic/s28061240.jpg" class=""
+                  width="106px" height="158px" alt="支付战争">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="支付战争">支付战争</a>
+              </div>
+              <div class="author">
+                埃里克•杰克逊
+              </div>
+			    <!--浮层--> 
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="苏格拉底的审判">
+                <img src="http://img3.douban.com/lpic/s28024630.jpg" class=""
+                  width="106px" height="158px" alt="苏格拉底的审判">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="苏格拉底的审判">苏格拉底的审判</a>
+              </div>
+              <div class="author">
+                [美] I.F.斯东
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="硬派健身">
+                <img src="http://img4.douban.com/lpic/s28065888.jpg" class=""
+                  width="106px" height="158px" alt="硬派健身">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="硬派健身">硬派健身</a>
+              </div>
+              <div class="author">
+                斌卡
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+       </ul>
+		<!--2ul-->
+		<!--3ul-->
+		<!--4ul-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- douban ad begin -->
+  <div id="dale_book_home_left_top" class="ad-placeholder" style="margin:-30px 0 30px;"></div>
+  
+  
+   <div class="section books-express ">
+    <div class="hd"> 
+  <h2 class=''>
+    <span class="">阅读排行榜</span>
+      <span class="link-more">
+        <a class="" href="/latest?icn=index-latestbook-all"
+          >更多»</a>
+      </span>
+  </h2>
+    </div>
+    <div class="bd">
+      <div class="carousel">
+        <div class="slide-list">
+          <ul class="list-col list-col5 list-express slide-item"> 
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我们这个时代的怕和爱">
+                <img src="http://img3.douban.com/lpic/s28044105.jpg" class=""
+                  width="106px" height="158px" alt="我们这个时代的怕和爱">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我们这个时代的怕和爱">我们这个时代的怕和爱</a>
+              </div>
+              <div class="author">
+                陈丹青  等
+              </div>
+			  <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我坚信">
+                <img src="http://img4.douban.com/lpic/s28055538.jpg" class=""
+                  width="106px" height="158px" alt="我坚信">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我坚信">我坚信</a>
+              </div>
+              <div class="author">
+                [美]奥普拉·温弗瑞（Oprah Winfrey）
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="cover">
+              <a href="#" title="支付战争">
+                <img src="http://img3.douban.com/lpic/s28061240.jpg" class=""
+                  width="106px" height="158px" alt="支付战争">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="支付战争">支付战争</a>
+              </div>
+              <div class="author">
+                埃里克•杰克逊
+              </div>
+			    <!--浮层--> 
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="苏格拉底的审判">
+                <img src="http://img3.douban.com/lpic/s28024630.jpg" class=""
+                  width="106px" height="158px" alt="苏格拉底的审判">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="苏格拉底的审判">苏格拉底的审判</a>
+              </div>
+              <div class="author">
+                [美] I.F.斯东
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="硬派健身">
+                <img src="http://img4.douban.com/lpic/s28065888.jpg" class=""
+                  width="106px" height="158px" alt="硬派健身">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="硬派健身">硬派健身</a>
+              </div>
+              <div class="author">
+                斌卡
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+       </ul>
+		<!--2ul-->
+		<!--3ul-->
+		<!--4ul-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <div class="section books-express ">
+    <div class="hd"> 
+  <h2 class=''>
+    <span class="">评分排行榜</span>
+      <span class="link-more">
+        <a class="" href="/latest?icn=index-latestbook-all"
+          >更多»</a>
+      </span>
+  </h2>
+    </div>
+    <div class="bd">
+      <div class="carousel">
+        <div class="slide-list">
+          <ul class="list-col list-col5 list-express slide-item"> 
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我们这个时代的怕和爱">
+                <img src="http://img3.douban.com/lpic/s28044105.jpg" class=""
+                  width="106px" height="158px" alt="我们这个时代的怕和爱">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我们这个时代的怕和爱">我们这个时代的怕和爱</a>
+              </div>
+              <div class="author">
+                陈丹青  等
+              </div>
+			  <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="我坚信">
+                <img src="http://img4.douban.com/lpic/s28055538.jpg" class=""
+                  width="106px" height="158px" alt="我坚信">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="我坚信">我坚信</a>
+              </div>
+              <div class="author">
+                [美]奥普拉·温弗瑞（Oprah Winfrey）
+              </div>
+            </div>
+          </li>
+          <li class="">
+            <div class="cover">
+              <a href="#" title="支付战争">
+                <img src="http://img3.douban.com/lpic/s28061240.jpg" class=""
+                  width="106px" height="158px" alt="支付战争">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="支付战争">支付战争</a>
+              </div>
+              <div class="author">
+                埃里克•杰克逊
+              </div>
+			    <!--浮层--> 
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="苏格拉底的审判">
+                <img src="http://img3.douban.com/lpic/s28024630.jpg" class=""
+                  width="106px" height="158px" alt="苏格拉底的审判">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="苏格拉底的审判">苏格拉底的审判</a>
+              </div>
+              <div class="author">
+                [美] I.F.斯东
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+		  
+          <li class="">
+            <div class="cover">
+              <a href="#" title="硬派健身">
+                <img src="http://img4.douban.com/lpic/s28065888.jpg" class=""
+                  width="106px" height="158px" alt="硬派健身">
+              </a>
+            </div>
+                <div class="intervenor-info">
+                    <img src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png" class='jd-icon' width="16" height="16"/> 
+                    <span>推荐</span>
+                </div>
+            <div class="info">
+              <div class="title">
+                <a class="" href="#"
+                  title="硬派健身">硬派健身</a>
+              </div>
+              <div class="author">
+                斌卡
+              </div>
+			    <!--浮层-->
+            </div>
+          </li>
+       </ul>
+		<!--2ul-->
+		<!--3ul-->
+		<!--4ul-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- douban ad begin -->
+  <div id="dale_book_home_left_top" class="ad-placeholder" style="margin:-30px 0 30px;"></div>
+
+  <!-- douban ad begin -->
+  <div id="dale_book_home_left_top" class="ad-placeholder" style="margin:-30px 0 30px;"></div>
+  <!-- douban app end -->
+
+
+
+  <!-- douban ad begin -->
+  <div id="dale_book_home_left_middle" class="ad-placeholder" style="margin:-50px 0 30px;"></div>
+  <!-- douban app end -->
+
+  
+  <div class="section ebook-area">
+    <div class="hd">
+  <h2 class=''>
+    <span class="">推荐出版社作品</span>
+      <span class="link-more">
+        <a class="" href="#;dcm=douban"
+           target=_blank>查看全部»</a>
+      </span>
+  </h2>
+    </div>
+    <div class="bd">
+      <div class="">
+  <div class="sub-section ">
+    <div class="sub-bd" >
+     <ul class="list-col list-col5">      
+  <li class="">
+    <div class="cover">
+      <a href="#" target="_blank" title="多多，爸爸一直在这儿">
+        <img src="http://img3.douban.com/view/ark_article_cover/cut/public/10065363.jpg?v=1432820708.0" alt="多多，爸爸一直在这儿"
+          width="106px" height="158px">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        <a href="#" title="多多，爸爸一直在这儿" target="_blank">
+          多多，爸爸一直在这儿
+        </a>
+      </div>
+      <div class="price">
+          11.99元
+      </div>
+      <!--meta_more-->
+    </div>
+  </li>
+  <li class="">
+    <div class="cover">
+      <a href="#" target="_blank" title="岛上书店">
+        <img src="http://img3.douban.com/view/ark_article_cover/cut/public/9580262.jpg?v=1431399163.0" alt="岛上书店"
+          width="106px" height="158px">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        <a href="#" title="岛上书店" target="_blank">
+          岛上书店
+        </a>
+      </div>
+      <div class="price">
+          9.90元
+      </div>
+    </div>
+  </li>      
+  <li class="">
+    <div class="cover">
+      <a href="#" target="_blank" title="若无相欠，怎会相见">
+        <img src="http://img3.douban.com/view/ark_article_cover/cut/public/10065558.jpg?v=1432805880.0" alt="若无相欠，怎会相见"
+          width="106px" height="158px">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        <a href="#" title="若无相欠，怎会相见" target="_blank">
+          若无相欠，怎会相见
+        </a>
+      </div>
+      <div class="price">
+          10.00元
+      </div>
+    </div>
+  </li>
+
+  <li class="">
+    <div class="cover">
+      <a href="#" target="_blank" title="美好古董衣店">
+        <img src="http://img3.douban.com/view/ark_article_cover/cut/public/9948286.jpg?v=1432713366.0" alt="美好古董衣店"
+          width="106px" height="158px">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        <a href="#" title="美好古董衣店" target="_blank">
+          美好古董衣店
+        </a>
+      </div>
+      <div class="price">
+          15.00元
+      </div>
+    </div>
+  </li>
+
+  <li class="">
+    <div class="cover">
+      <a href="#" target="_blank" title="文学回忆录：二十世纪之卷">
+        <img src="http://img3.douban.com/view/ark_article_cover/cut/public/9842846.jpg?v=1431799224.0" alt="文学回忆录：二十世纪之卷"
+          width="106px" height="158px">
+      </a>
+    </div>
+    <div class="info">
+      <div class="title">
+        <a href="#" title="文学回忆录：二十世纪之卷" target="_blank">
+          文学回忆录：二十世纪之卷
+        </a>
+      </div>
+      <div class="price">
+          15.49元
+      </div>
+    </div>
+  </li> 
+    </ul>
+    </div>
+     </div>
+    </div>
+    </div>
+  </div>
+</div>
+   <div class="aside">
+  <!-- douban ad begin -->
+  <div id="dale_book_home_top_right" class="s ad-placeholder"
+    data-dstat-areaid="51" data-dstat-mode="click,expose"
+    style="margin-top: 30px;"></div>
+  <!-- douban ad end -->
+
+  <!-- douban ad begin -->
+  <div id="dale_book_home_top_right2" class="ad-placeholder"></div>
+  <!-- douban ad end -->
+  
+  <h2 class=''>
+    <span class="">热门标签</span>
+      <span class="link-more">
+        <a class="" href="/tag/?view=type&amp;icn=index-sorttags-all"
+          >所有热门标签»</a>
+      </span>
+  </h2>
+
+  <ul class="hot-tags-col5 s" data-dstat-areaid="54" data-dstat-mode="click,expose">
+    <li>
+        <ul class="clearfix">
+            <li class="tag_title"> 类别</li>
+            <li><a href="#" class="tag">哲学</a></li>
+            <li><a href="#" class="tag">社会</a></li>
+            <li><a href="#" class="tag">政治</a></li>
+            <li class="last"><a href="#" class="tag">文学</a></li>
+            <li><a href="#" class="tag">艺术</a></li>
+            <li><a href="#" class="tag">科幻</a></li>
+            <li><a href="#" class="tag">画本</a></li>
+            <li><a href="#" class="tag">画本</a></li>
+			<li><a href="#" class="tag">散文</a></li>
+			<li><a href="#" class="tag">小说</a></li>
+			<li class="last"><a href="#" class="tag">诗歌</a></li>
+            <li class="last"><a href="#" class="tag more_tag">更多》</a></li>
+        </ul>
+    </li>
+	
+    <li>
+        <ul class="clearfix">
+            <li class="tag_title">推荐</li>
+            <li><a href="#" class="tag">学校</a></li>
+            <li><a href="#" class="tag">教师</a></li>
+            <li><a href="#" class="tag">学生</a></li>
+            <li><a href="#" class="tag">读书活动</a></li>
+            <li class="last"><a href="#" class="tag more_tag">更多》</a></li>
+        </ul>
+    </li>
+	
+    <li>
+        <ul class="clearfix">
+			<li class="tag_title">年级</li>
+			<li><a href="#" class="tag">一年级</a></li>
+			<li><a href="#" class="tag">二年级</a></li>
+			<li><a href="#" class="tag">三年级</a></li>
+			<li><a href="#" class="tag">四年级</a></li>
+			<li><a href="#" class="tag">五年级</a></li>
+			<li><a href="#" class="tag">六年级</a></li>
+			<li class="last"><a href="#" class="tag more_tag">更多》</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <ul class="clearfix">
+			<li class="tag_title">学科</li>
+			<li><a href="#" class="tag">语文</a></li>
+			<li><a href="#" class="tag">数学</a></li>
+			<li><a href="#" class="tag">外语</a></li>
+			<li><a href="#" class="tag">美术</a></li>
+			<li><a href="#" class="tag">科学</a></li>
+			<li><a href="#" class="tag">体育</a></li>
+			<li><a href="#" class="tag">计算机</a></li>
+			<li class="last"><a href="#" class="tag more_tag">更多》</a></li>
+        </ul>
+    </li>
+</ul>
+  <!-- douban ad begin -->
+  <div id="dale_book_homepage_right_bottom" class="ad-placeholder"></div>
+  <!-- douban ad end -->
+<div class="block5">
+	<h2 class=''>
+	<span class="">阅读达人</span>
+</h2>
+    <ul class="entry-list-col2s s "data-dstat-mode="click,expose" data-dstat-areaid="55">
+       <li class="noline"><a href="#" onclick="moreurl(this, {from:'revauthor'})"> <img class="userface" alt="蓦烟如雪" src="http://img3.douban.com/icon/u4050587-5.jpg"></img></a>
+		<div class="fleft w210">
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})">蓦烟如雪</a></p>
+			<p class="entry-star-small clearfix">
+				<span class="fleft"></span>
+			</p>
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})"></a></p>
+			<p class="color-gray">
+			   <span class="">14有用    </span>
+			   <span class="">2015-06-02</span>
+			</p>
+		</div>
+		<span style="font-size:12px; color:#37A;">22本</span>
+   </li>
+      <li class="noline"><a href="#" onclick="moreurl(this, {from:'revauthor'})"> <img class="userface" alt="蓦烟如雪" src="http://img3.douban.com/icon/u4050587-5.jpg"></img></a>
+		<div class="fleft w210">
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})">蓦烟如雪</a></p>
+			<p class="entry-star-small clearfix">
+				<span class="fleft"></span>
+			</p>
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})"></a></p>
+			<p class="color-gray">
+			   <span class="">14有用    </span>
+			   <span class="">2015-06-02</span>
+			</p>
+		</div>
+		<span style="font-size:12px; color:#37A;">22本</span>
+   </li>
+       <li class="noline"><a href="#" onclick="moreurl(this, {from:'revauthor'})"> <img class="userface" alt="蓦烟如雪" src="http://img3.douban.com/icon/u4050587-5.jpg"></img></a>
+		<div class="fleft w210">
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})">蓦烟如雪</a></p>
+			<p class="entry-star-small clearfix">
+				<span class="fleft"></span>
+			</p>
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})"></a></p>
+			<p class="color-gray">
+			   <span class="">14有用    </span>
+			   <span class="">2015-06-02</span>
+			</p>
+		</div>
+		<span style="font-size:12px; color:#37A;">22本</span>
+   </li>
+      <li class="noline"><a href="#" onclick="moreurl(this, {from:'revauthor'})"> <img class="userface" alt="蓦烟如雪" src="http://img3.douban.com/icon/u4050587-5.jpg"></img></a>
+		<div class="fleft w210">
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})">蓦烟如雪</a></p>
+			<p class="entry-star-small clearfix">
+				<span class="fleft"></span>
+			</p>
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})"></a></p>
+			<p class="color-gray">
+			   <span class="">14有用    </span>
+			   <span class="">2015-06-02</span>
+			</p>
+		</div>
+		<span style="font-size:12px; color:#37A;">22本</span>
+   </li>
+          <li class="noline"><a href="#" onclick="moreurl(this, {from:'revauthor'})"> <img class="userface" alt="蓦烟如雪" src="http://img3.douban.com/icon/u4050587-5.jpg"></img></a>
+		<div class="fleft w210">
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})">蓦烟如雪</a></p>
+			<p class="entry-star-small clearfix">
+				<span class="fleft"></span>
+			</p>
+			<p><a class="" href="#" onclick="moreurl(this, {from:'revauthor'})"></a></p>
+			<p class="color-gray">
+			   <span class="">14有用    </span>
+			   <span class="">2015-06-02</span>
+			</p>
+		</div>
+		<span style="font-size:12px; color:#37A;">22本</span>
+   </li>
+</ul>
+</div>  
+<div class="section weekly-top">
+    <div class="hd">
+        <h2>猜你喜欢</h2>
+    </div>
+    <div class="bd">
+            <ul class="list list-ranking">
+                <li class="item">
+                    <span class="rank-num">1.</span>
+                    <div class="book-info">
+                        <a href="#" class="name" target="_blank">互联网+</a>
+                        <div class="author">马化腾</div>
+                    </div>
+                    <a href="#" target="_blank"><span class="buy-button">去阅读</span></a>
+				</li>
+				
+                <li class="item">
+                    <span class="rank-num">2.</span>
+                    <div class="book-info">
+                        <a href="#" class="name" target="_blank">从你的全世界路过</a>
+                        <div class="author">张嘉佳</div>
+                    </div>
+                    <a href="#" target="_blank"><span class="buy-button">去阅读</span></a>
+				</li>
+                
+                <li class="item">
+                    <span class="rank-num">3.</span>
+                    <div class="book-info">
+                        <a href="#" class="name" target="_blank">呼兰河传</a>
+                        <div class="author">萧红</div>
+                    </div>
+                    <a href="#" target="_blank"><span class="buy-button">去阅读</span></a>
+				</li>
+				
+                <li class="item">
+                    <span class="rank-num">4.</span>
+                    <div class="book-info">
+                        <a href="#" class="name" target="_blank">一看就懂的股市图谱全图解</a>
+                        <div class="author">尹航</div>
+                    </div>
+                    <a href="#" target="_blank"><span class="buy-button">去阅读</span></a>
+				</li>
+                
+                <li class="item">
+                    <span class="rank-num">5.</span>
+                    <div class="book-info">
+                        <a href="#" class="name" target="_blank">以自己喜欢的方式过一生</a>
+                        <div class="author">林特特</div>
+                    </div>
+                    <a href="#" target="_blank"><span class="buy-button">去阅读</span></a>
+				</li> 
+            </ul>
+    </div>
+</div>
+  <!-- douban ad begin -->
+  <div id="dale_book_home_bottem_right" class="ad-placeholder"></div>
+  <!-- douban ad end -->
+      </div>
+      <div class="extra">
+      </div>
+    </div>
+  </div>
+  </div>  
+</body>
+</html>
