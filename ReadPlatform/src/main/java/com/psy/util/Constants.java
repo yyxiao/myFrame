@@ -33,6 +33,9 @@ public class Constants {
 	/**	------------ 豆瓣isbn地址  ------------- */
 	public static final String ISBN_URL = "https://api.douban.com/v2/book/isbn/"; 
 	
+	/**	------------ 图片存储虚拟地址  ------------- */
+	public static final String PHOTO_URL = "http://localhost:8080/userphotos/"; 
+	
 	//评分、阅读排行
 	/**	------------ 阅读排行  ------------- */
 	public static final String RANK_READ = "00A"; 

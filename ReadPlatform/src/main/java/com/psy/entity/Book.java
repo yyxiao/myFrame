@@ -21,6 +21,8 @@ public class Book implements java.io.Serializable {
 	private String bookId;
 	private String bookName;
 	private String author;
+	private String drawor;
+	private String editor;
 	private String type;
 	private String recommend;
 	private String subject;
@@ -30,7 +32,8 @@ public class Book implements java.io.Serializable {
 	private String pages;
 	private String authorIntro;
 	private String translator;
-	private String commonTags;
+	private String dbTags;
+	private String schoolTags;
 	private String publisher;
 	private String pubdate;
 	private String summary;
@@ -46,14 +49,17 @@ public class Book implements java.io.Serializable {
 	public Book() {
 	}
 
-	public Book(String bookName, String author, String type, String recommend,
-			String subject, String grade, String isbn10, String isbn13,
-			String pages, String authorIntro, String translator,
-			String commonTags, String publisher, String pubdate,
+	public Book(String bookName, String author, String translator, String drawor, String editor, 
+			String type, String recommend, String subject, String grade, 
+			String isbn10, String isbn13, String pages, String authorIntro,
+			String dbTags, String schoolTags, String publisher, String pubdate,
 			String summary, String price, byte[] content, String images, String smallImages,
 			String largeImages, String mediumImages, String background, String createTime) {
 		this.bookName = bookName;
 		this.author = author;
+		this.translator = translator;
+		this.drawor = drawor;
+		this.editor = editor;
 		this.type = type;
 		this.recommend = recommend;
 		this.subject = subject;
@@ -62,8 +68,8 @@ public class Book implements java.io.Serializable {
 		this.isbn13 = isbn13;
 		this.pages = pages;
 		this.authorIntro = authorIntro;
-		this.translator = translator;
-		this.commonTags = commonTags;
+		this.dbTags = dbTags;
+		this.schoolTags = schoolTags;
 		this.publisher = publisher;
 		this.pubdate = pubdate;
 		this.summary = summary;
@@ -104,6 +110,24 @@ public class Book implements java.io.Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	@Column(name = "drawor")
+	public String getDrawor() {
+		return drawor;
+	}
+
+	public void setDrawor(String drawor) {
+		this.drawor = drawor;
+	}
+
+	@Column(name = "editor")
+	public String getEditor() {
+		return editor;
+	}
+
+	public void setEditor(String editor) {
+		this.editor = editor;
 	}
 
 	@Column(name = "type")
@@ -187,13 +211,22 @@ public class Book implements java.io.Serializable {
 		this.translator = translator;
 	}
 
-	@Column(name = "common_tags", length = 3000)
-	public String getCommonTags() {
-		return this.commonTags;
+	@Column(name = "db_tags", length = 3000)
+	public String getDbTags() {
+		return this.dbTags;
 	}
 
-	public void setCommonTags(String commonTags) {
-		this.commonTags = commonTags;
+	public void setDbTags(String dbTags) {
+		this.dbTags = dbTags;
+	}
+
+	@Column(name = "school_tags", length = 3000)
+	public String getSchoolTags() {
+		return schoolTags;
+	}
+
+	public void setSchoolTags(String schoolTags) {
+		this.schoolTags = schoolTags;
 	}
 
 	@Column(name = "publisher")

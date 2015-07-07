@@ -13,6 +13,7 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="-1" />
+<meta name="renderer" content="webkit"/>
 <!-- css -->
 <link rel="stylesheet" href="${ctx}/style/css/index/47783e39ae67de90.css"/>
 <!-- js -->

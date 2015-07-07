@@ -1,0 +1,56 @@
+﻿
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        /*全屏背景遮罩层*/
+        .loadingPage_bg1 {
+            background: none repeat scroll 0 0 #000;
+            height: 100%;
+            left: 0; /*:rgba(0,0,0,0.5);*/
+            opacity: 0.4;
+            filter: alpha(opacity=70);
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            z-index: 110;
+        }
+        #loadingPage {
+            display: block;
+            height: 50px;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            width: 150px;
+            z-index: 111;
+            background: url(../img/loading.gif) no-repeat;
+        }
+.imgbox {
+    width:130px;
+    box-shadow: 1px 1px 6px #0094ff;
+    border-radius: 1%;
+    padding: 10px;
+}
+.box {
+    box-shadow: 1px 1px 6px #5bc0de;
+    border-radius: 1%;
+    height:300px;
+    width:605px;
+    float:left;
+    margin:10px 0 0 10px;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>BooksList</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/jquery.1.10.2.js"></script>
+    <script src="js/CommonPerson.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .templet {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var Page = 1;
+            var Size = 12;
+            var Name = "";
+            var Total = 0;
+
+            $("#search").unbind("click").click(function () {
+
+                Name = $(".form-control").val();
+
+                if (Name == "" || Name.length == 0) {
+                    alert("请输入搜索内容!");
+                    $(".form-control").focus();
+                    return;
+                }
+
+                post();
+            });
+
+            $(".previous").click(function () {
+
+                if (Name == "" || Name.length == 0) {
+                    alert("请输入搜索内容!");
+                    $(".form-control").focus();
+                    return;
+                }
+
+                $(".next").removeClass("disabled");
+                if (Page == 1) {
+                    $(".previous").addClass("disabled");
+                } else {
+                    Page -= 1;
+                    post();
+                }
+            });
+
+            $(".next").click(function () {
+
+                if (Name == "" || Name.length == 0) {
+                    alert("请输入搜索内容!");
+                    $(".form-control").focus();
+                    return;
+                }
+
+                $(".previous").removeClass("disabled");
+                Page += 1;
+                post();
+                if (Page == Math.ceil(Total / Size)) {
+                    $(".next").addClass("disabled");
+                }
+            });
+
+            function post() {
+
+                $(".book").empty();
+
+                var o = {
+                    q: Name,
+                    start: Size * Page - Size,
+                    count: Size
+                };
+
+                CommonPerson.Base.LoadingPic.FullScreenShow();
+
+                $.ajax({
+                    url: 'http://api.douban.com/v2/book/search',
+                    timeout: 180000,
+                    type: 'POST',
+                    dataType: 'jsonp',
+                    data: o,
+                    success: function (result) {
+                        fullHide();
+                        Total = result.total;
+                        $(result.books).each(function (index, book) {
+                            var ele = $(".templet").clone().removeClass("templet");
+                            ele.find(".col-md-4 > img").attr("src", book.image);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .bookName").html(book.title);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .author").html(book.author[0]);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .isbn10").html(book.isbn10);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .isbn13").html(book.isbn13);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .pages").html(book.pages);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .authorIntro").html(subStr(book.author_intro));
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .translator").html(book.translator[0]);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .publisher").html(book.publisher);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .pubdate").html(book.pubdate);
+                            ele.find(".col-md-4 > .form-horizontal > .form-group > .price").html(book.price);
+                            ele.find(".col-md-4 > a").attr("href", "book.html?isbn=" + book.isbn10);
+                            $(".book").append(ele);
+                        });
+                    },
+                    complete: function (XMLHttpRequest, status) {
+                        if (status == 'timeout') {
+                            alert("请求超时,请刷新重试...");
+                            fullHide();
+                            window.location.reload();
+                        }
+                    }
+                });
+            };
+
+            function subStr(str) {
+                return str.length > 10 ? str.substring(0, 10) + "..." : str;
+            };
+            function fullHide() {
+                CommonPerson.Base.LoadingPic.FullScreenHide();
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div style="float:right;margin-right:200px;">
+                <div class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="书名" style="width:400px;margin-right:50px;">
+                    </div>
+                    <button type="reset" class="btn btn-info" id="search">搜索</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="book clearfix"></div>
+
+    <div class="box templet" style="border:1px solid #ddd; margin-top:50px; padding:20px;">
+        <div class="col-md-4">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <span class="col-md-5 control-span">书名:</span>
+                    <span class="bookName"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">作者:</span>
+                    <span class="author"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">isbn10:</span>
+                    <span class="isbn10"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">isbn13:</span>
+                    <span class="isbn13"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">页数:</span>
+                    <span class="pages"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <span class="col-md-6 control-span">作者简介:</span>
+                    <span class="authorIntro"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">翻译:</span>
+                    <span class="translator"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">出版社:</span>
+                    <span class="publisher"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">时间:</span>
+                    <span class="pubdate"></span>
+                </div>
+                <div class="form-group">
+                    <span class="col-md-5 control-span">价格:</span>
+                    <span class="price"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <img style="float: right; box-shadow: 1px 1px 6px #5bc0de; border-radius: 1%; " />
+
+            <a style="float:right;margin:80px 0 0 0;" target="_Blank"><input class="btn btn-info" type="button" value="转到详情 >"></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="pager">
+            <li class="previous disabled">
+                <a onclick="javascript:0;">
+                    <span aria-hidden="true">&larr;</span> Older
+                </a>
+            </li>
+            <li class="next"><a onclick="javascript:0;">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </div>
+</body>
+</html>

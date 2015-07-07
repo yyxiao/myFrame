@@ -73,7 +73,7 @@
 												</div>
 												<div class="intervenor-info">
 													<img
-														src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png"
+														src="${ctx}/style/image/index/logo1.png"
 														class='jd-icon' width="16" height="16" /> <span>学校推荐</span>
 												</div>
 												<div class="info">
@@ -113,9 +113,10 @@
 													</a>
 												</div>
 												<div class="intervenor-info">
-													<img
-														src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png"
-														class='jd-icon' width="16" height="16" /> <span>${readbook.time}</span>
+													<img src="${ctx}/style/image/index/logo1.png" class='jd-icon' width="16" height="16" /> 
+													<span>${readbook.time}
+														<c:if test="${readbook.time!=''}">人</c:if>
+													</span>
 												</div>
 												<div class="info">
 													<div class="title">
@@ -154,7 +155,7 @@
 												</div>
 												<div class="intervenor-info">
 													<img
-														src="http://img3.douban.com/f/book/ef040178fab1770d60e3f2f12ba4c7aa70714396/pics/book/partner/jd_recommend.png"
+														src="${ctx}/style/image/index/logo1.png"
 														class='jd-icon' width="16" height="16" /> <span>${scorebook.score}</span>
 												</div>
 												<div class="info">
@@ -293,8 +294,8 @@
 						<ul class="entry-list-col2s s " style="padding-bottom: 1px;">
 							<c:forEach items="${userList}" var="userlist">
 								<li class="noline" style="border-bottom: 1px dashed #dddddd;padding-top: 5px;">
-									<img class="userface" alt="${userlist.name}"
-									src="http://img3.douban.com/icon/u4050587-5.jpg"></img>
+									<img class="userface" alt="${userlist.name}" style="width: 48px;height: 48px;"
+									src="${userlist.face}"></img>
 									<div class="fleft w210" style="width: 190px;">
 										<p>
 											<span>${userlist.name}</span>
@@ -316,7 +317,7 @@
 							<h2>
 								<span class="">猜你喜欢</span>
 								<span class="link-more"> 
-									<a class="" href="${ctx}/index!randomBook.do">换一批»</a>
+									<a class="" href="${ctx}/index!view.do">换一批»</a>
 								</span>
 							</h2>
 						</div>
@@ -342,20 +343,16 @@
 			</div>
 			<div id="footer">
 				<span id="icp" class="fleft gray-link">
-					&copy; 2005－2015 douban.com, all rights reserved
+					&copy; 2005－2015 psylife, all rights reserved
 				</span>
 				
 				<a href="#" style="display: none;"></a>
 				<span class="fright">
-					<a href="#">关于豆瓣</a>
-					· <a href="#">在豆瓣工作</a>
-					· <a href="#">联系我们</a>
+					<a href="#">联系我们</a>
 					· <a href="#">免责声明</a>    
 					· <a href="#">帮助中心</a>
-					· <a href="#" target="_blank">开发者</a>
 					· <a href="#">图书馆合作</a>
 					· <a href="#">移动应用</a>
-					· <a href="#">豆瓣广告</a>
 				</span>
 		  	</div>
 		</div>
