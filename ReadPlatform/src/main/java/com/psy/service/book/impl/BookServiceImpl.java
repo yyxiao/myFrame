@@ -46,12 +46,22 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public Book getBookById(String pkId) throws ServiceException {
 		List<Book> books = bookDao.findBy("bookId", pkId);
-		if (!books.isEmpty()) {
+		if (!StringHelper.isEmptyList(books)) {
 			return books.get(0);
 		}
 		return null;
 	}
-
+	
+	@Override
+	public Boolean getBookByIsbn13(String isbn13) throws ServiceException {
+		List<Book> books = bookDao.findBy("isbn13", isbn13);
+		System.out.println(books.size());
+		if (StringHelper.isEmptyList(books)) {
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public void deleteBook(String id) throws ServiceException {
 		Book book = getBookById(id);
@@ -119,4 +129,5 @@ public class BookServiceImpl implements BookService {
 		Page<Book> books = bookDao.findPage(page,hql.toString());
 		return books;
 	}
+
 }

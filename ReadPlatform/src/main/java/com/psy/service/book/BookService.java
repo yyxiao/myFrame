@@ -32,12 +32,19 @@ public interface BookService {
 	public Book getBookById(String id) throws ServiceException;
 	
 	/**
+	 * 通过ISBN13获取信息
+	 * @param ISBN13
+	 * @return
+	 */
+	public Boolean getBookByIsbn13(String isbn13) throws ServiceException;
+	/**
 	 * 
 	 * 方法描述 : 根据id删除
 	 * @param id
 	 * @throws ServiceException
 	 */
 	public void deleteBook(String id)throws ServiceException;
+	
 	/**
 	 * 获取列表信息
 	 * @param id

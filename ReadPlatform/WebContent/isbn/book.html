@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Book</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.1.10.2.js"></script>
+    <script src="js/CommonPerson.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var isbn = GetParam("isbn");
+
+            if (isbn != null && isbn.length != 0 && isbn != '') {
+                $("#name").val(isbn);
+                post();
+            }
+
+            $("#search").unbind("click").click(function () {
+                post();
+            });
+
+            $("#submit").click(function () {
+
+                CommonPerson.Base.LoadingPic.FullScreenShow();
+
+                var o = {
+                    bookName: $("#bookName").val(),
+                    author: $("#author").val(),
+                    isbn10: $("#isbn10").val(),
+                    isbn13: $("#isbn13").val(),
+                    pages: $("#pages").val(),
+                    authorIntro: $("#authorIntro").val(),
+                    translator: $("#translator").val(),
+                    publisher: $("#publisher").val(),
+                    pubdate: $("#pubdate").val(),
+                    summary: $("#summary").val(),
+                    price: $("#price").val(),
+                    smallImages: $("#smallImages").val(),
+                    largeImages: $("#largeImages").val(),
+                    mediumImages: $("#mediumImages").val(),
+                    images: $("#images").attr("src"),
+                    commonTags: $("#commonTags").val(),
+                    content: $("#content").val(),
+                    subject: $("#subject").val(),
+                    type: $("#type").val(),
+                    recommend: $("#recommend").val(),
+                    grade: $("#grade").val(),
+                    drawor: $("#drawor").val(),
+                    editor: $("#editor").val(),
+                    schoolTags: $("#schoolTags").val(),
+                };
+
+                $.ajax({
+                    url: '/ReadPlatform/book/book!saveInfo.do',
+                    type: 'POST',
+                    dataType: 'jsonp',
+                    data: o,
+                    success: function (data) {
+                        fullHide();
+                        if (data.msg == "0") {
+                            $(".form-control").attr("value", "");
+                            $("#images").attr("src", "");
+                        } else if (data.msg == "1") {
+                            alert("该图书已存在！");
+                        }
+                    }
+                });
+            });
+
+            function post() {
+
+                var name = $("#name").val();
+
+                CommonPerson.Base.LoadingPic.FullScreenShow();
+
+
+
+                $.ajax({
+                    url: 'http://api.douban.com/v2/book/isbn/:' + name,
+                    timeout: 10000,
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    data: {},
+                    success: function (result) {
+                        fullHide();
+                        $("#bookName").val(result.title);
+                        $("#author").val(result.author);
+                        $("#isbn10").val(result.isbn10);
+                        $("#isbn13").val(result.isbn13);
+                        $("#pages").val(result.pages);
+                        $("#authorIntro").val(result.author_intro);
+                        $("#translator").val(result.translator);
+                        $("#publisher").val(result.publisher);
+                        $("#pubdate").val(result.pubdate);
+                        $("#summary").val(result.summary);
+                        $("#price").val(result.price);
+                        $("#smallImages").val(result.images.small);
+                        $("#largeImages").val(result.images.large);
+                        $("#mediumImages").val(result.images.medium);
+                        $("#dbTags").val(getTagsText(result.tags));
+                        //$("#content").val(result.title);
+                        $("#images").attr("src", result.image);
+                    },
+                    complete: function (XMLHttpRequest, status) {
+                        if (status == 'timeout') {
+                            alert("请求超时,请刷新重试...");
+                            fullHide();
+                        }
+                    }
+                });
+            };
+
+            function getTagsText(tags) {
+
+                var str = "";
+
+                for (var i = 0; i < tags.length; i++) {
+                    str +=  tags[i].name + ",";
+                }
+
+                return str.substring(0, str.length - 1);
+            };
+
+            function GetParam(paramName) {
+                var r = new RegExp(paramName + '=([^=&]+)', 'i');
+                var mm = window.location.search.match(r);
+                if (mm) {
+                    return mm[1];
+                }
+                else {
+                    return null;
+                }
+            };
+
+            function fullHide() {
+                CommonPerson.Base.LoadingPic.FullScreenHide();
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input id="name" type="text" class="form-control" placeholder="isbn 码" style="width:300px;">
+                </div>
+                <button id="search" type="button" class="btn btn-info">搜索</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="border:1px solid #ddd; margin-top:50px; padding:20px;">
+        <div class="row">
+            <div class="col-md-5">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">书名</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="bookName" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">作者</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="author" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">译者</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="translator" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">绘者</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="drawor" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">编者</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="editor" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">isbn10</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="isbn10" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">isbn13</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="isbn13" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">页数</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pages" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">出版社</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="publisher" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">时间</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pubdate" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">作者简介</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="authorIntro" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">总结</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" rows="3" id="summary"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">价格</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="price" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">小图像</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="smallImages" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">大图像</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="largeImages" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">中等图像</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="mediumImages" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">内容</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="content" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">类型</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="type" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">推荐</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="recommend" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">学科</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="subject" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">年级</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="grade" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">豆瓣标签</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="dbTags" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">自定义标签</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="schoolTags" placeholder=""></textarea>
+                        </div>
+
+                        <div style="float:right;margin:20px 20px 0 0;">
+                            <input id="submit" class="btn btn-info" type="submit" value="提交">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="imgbox">
+                    <img id="images" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

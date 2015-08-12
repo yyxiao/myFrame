@@ -16,6 +16,22 @@
 			center : true
 		});
 	});
+	function changeFace(userId){
+		$.dialog({
+		    id: 'a15',
+		    width: '300px',
+		    height: '120px',
+		    title: '更换头像',
+		    lock: true,
+		    content: '<form action="${ctx}/upload.do" id="formC" enctype="multipart/form-data" method="post">头像:<input type="file" name="image"><input type="hidden" name="userId" value="'+userId+'"></form>',
+		    padding: 0,
+		    ok: function () {
+		    	formC.submit();
+		        return false;
+		    },
+		    cancel: true
+		});
+	}
 </script>
 <link href="${ctx}/style/css/index/focuscarousel.css" rel="stylesheet" />
 <link rel="stylesheet" media="screen" href="${ctx}/style/css/index/superfish.css" />
@@ -29,7 +45,8 @@
 		  <div class="user-profile-nav" id="db-usr-profile">
 	  <h2>${user.name}</h2>
 		<div class="pic">
-			<a>
+		<!-- changeFace(${user.userId}); -->
+			<a onclick="">
 			  <img height="96" width="96"
 				alt="${user.name}" src="${user.face}" />
 			</a>
@@ -41,18 +58,43 @@
 		  <p>阅读书籍:<span class="color-gray">21本</span></p>
 		</div>
 	  </div> 
-	   <div style="clear:both;"></div>
+   	<div style="clear:both;"></div>
 	 <!--section popular-authors-->
 	<div class="popular-authors">
 		<div class="hd"> 
 		  <h2 class='' style="border-bottom:1px solid #DDD;">
 			<span class="">阅读记录</span>
 		  </h2>
-		</div>
-    	<div class="bd">
+	</div>
+		
+	<div class="bd">
+		<h2>
+			<span class="">在读书单</span>· · ·
+			<span class="pl">(<a>${bookBsize}本</a>)</span>
+	   </h2>
+      <ul class="entry-list-col2s s "data-dstat-areaid="55" data-dstat-mode="click,expose">    
+      	<c:if test="${bookBsize=='0'}">
+			<p class="h65">暂无在读书单。</p>
+      	</c:if>
+       	<c:forEach items="${bookB}" var="bookB">
+       		<li class="noline">
+				<a href="${ctx}/book/book!view.do?bookId=${bookB.bookId}">
+				  <img class="userface" src="${bookB.smallImages}" alt="${bookB.bookName}"/>
+				</a>
+				<div class="fleft w180">
+					<p>书&nbsp;&nbsp;&nbsp;&nbsp;名：<span>${bookB.bookName}</span></p>
+					<p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>${bookB.author}</span></p>
+					<p>出版社者：<span>${bookB.publisher}</span></p>
+				</div>
+			</li>
+       	</c:forEach>
+      </ul>
+    </div>
+		
+   	<div class="bd">
 		<h2>
 			<span class="">必读书单</span>· · ·
-			<span class="pl">(<a href="#">${bcPage.totalCount}本</a>)</span>
+			<span class="pl">(<a>${bcPage.totalCount}本</a>)</span>
 	   </h2>
       <ul class="entry-list-col2s s "data-dstat-areaid="55" data-dstat-mode="click,expose"> 
 	      <c:if test="${bcPage.totalCount=='0'}">
@@ -75,31 +117,8 @@
 	
 	<div class="bd">
 		<h2>
-			<span class="">在读书单</span>· · ·
-			<span class="pl">(<a href="#"></a>)</span>
-	   </h2>
-      <ul class="entry-list-col2s s "data-dstat-areaid="55" data-dstat-mode="click,expose">    
-      	<c:if test="${bookBsize=='0'}">
-			<p class="h65">暂无在读书单。</p>
-      	</c:if>
-       	<c:forEach items="${bookB}" var="bookB">
-       		<li class="noline">
-				<a href="${ctx}/book/book!view.do?bookId=${bookB.bookId}">
-				  <img class="userface" src="${bookB.smallImages}" alt="${bookB.bookName}"/>
-				</a>
-				<div class="fleft w180">
-					<p>书&nbsp;&nbsp;&nbsp;&nbsp;名：<span>${bookB.bookName}</span></p>
-					<p>作&nbsp;&nbsp;&nbsp;&nbsp;者：<span>${bookB.author}</span></p>
-					<p>出版社者：<span>${bookB.publisher}</span></p>
-				</div>
-			</li>
-       	</c:forEach>
-      </ul>
-    </div>
-	<div class="bd">
-		<h2>
 			<span class="">想读书单</span>· · ·
-			<span class="pl">(<a href="#"></a>)</span>
+			<span class="pl">(<a>${bookAsize}本</a>)</span>
 	   </h2>
       <ul class="entry-list-col2s s "data-dstat-areaid="55" data-dstat-mode="click,expose">    
       	<c:if test="${bookAsize=='0'}">
@@ -122,7 +141,7 @@
 	<div class="bd">
 	   <h2>
 			<span class="">已读书单</span>· · ·
-			<span class="pl">(<a href="#"></a>)</span>
+			<span class="pl">(<a>${bookCsize}本</a>)</span>
 	   </h2>
       <ul class="entry-list-col2s s "data-dstat-areaid="55" data-dstat-mode="click,expose"> 
       	<c:if test="${bookCsize=='0'}">
@@ -172,21 +191,27 @@
 	  <h2>
 		<span class="">阅读历史</span>
 	  </h2>
-		<ul class="mbt">
+		<ul class="entry-list-col2s s">
 			<c:forEach items="${hisRead}" var="hisRead">
-				<li class="contact-update-time" style="border-bottom: 1px dashed #DDD;">
-					<span class="pl"> ${hisRead.createTime}</span>
-					<p>${hisRead.bookName}加入
-					<c:if test="${hisRead.type=='00A'}">
-						想读
-					</c:if>
-					<c:if test="${hisRead.type=='00B'}">
-						在读
-					</c:if>
-					<c:if test="${hisRead.type=='00C'}">
-						读完
-					</c:if>
-					 书单</p>
+				<li class="noline" style="border-bottom: 1px dashed #DDD;padding: 6px 0 10px;">
+					<a href="${ctx}/book/book!view.do?bookId=${hisRead.bookId}">
+					  <img class="userface" style="width: 40px;height: 50px;" src="${hisRead.bookImage}" alt="${hisRead.bookName}"/>
+					</a>
+					<div class="fleft">
+						<span class="pl"> ${hisRead.createTime}</span>
+						<p>${hisRead.bookName}加入
+						<c:if test="${hisRead.type=='00A'}">
+							想读
+						</c:if>
+						<c:if test="${hisRead.type=='00B'}">
+							在读
+						</c:if>
+						<c:if test="${hisRead.type=='00C'}">
+							读完
+						</c:if>
+						 书单</p>
+					</div>
+					
 				</li>
 			</c:forEach>
 		</ul>
@@ -217,20 +242,16 @@
         
   <div id="footer">
 	<span id="icp" class="fleft gray-link">
-		&copy; 2005－2015 douban.com, all rights reserved
+		&copy; 2005－2015 psylife, all rights reserved
 	</span>
 	
 	<a href="#" style="display: none;"></a>
 	<span class="fright">
-		<a href="#">关于豆瓣</a>
-		· <a href="#">在豆瓣工作</a>
-		· <a href="#">联系我们</a>
+		<a href="#">联系我们</a>
 		· <a href="#">免责声明</a>    
 		· <a href="#">帮助中心</a>
-		· <a href="#" target="_blank">开发者</a>
 		· <a href="#">图书馆合作</a>
 		· <a href="#">移动应用</a>
-		· <a href="#">豆瓣广告</a>
 	</span>
   </div>
  </div>

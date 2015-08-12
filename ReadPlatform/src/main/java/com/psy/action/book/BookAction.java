@@ -10,7 +10,7 @@
  */
 package com.psy.action.book;
 
-import java.net.URLEncoder;
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -110,7 +110,7 @@ public class BookAction extends CrudActionSupport<Book> {
 			book.setPubdate(bookDouban.getPubdate());
 			book.setPublisher(bookDouban.getPublisher());
 			book.setSummary(bookDouban.getSummary());
-			book.setCommonTags(bookDouban.getCommonTags());
+			book.setDbTags(bookDouban.getCommonTags());
 			book.setTranslator(bookDouban.getTranslator());
 			book.setRecommend("");
 			book.setType("");
@@ -133,7 +133,7 @@ public class BookAction extends CrudActionSupport<Book> {
 		List randList = bookService.randomBooks("5");
 		// 谁读这本书
 		List<ReadRecord> readList = readRecordService.searchReadRecordByParam(
-				"", bookId, "", "5");
+				"", bookId, "", "10");
 		Object rand = bookDoubanService.findScoreByBookId(bookId);
 		//查询书籍评论
 		List<ReadRecord> readComment = readRecordService.searchReadRecordByParam(
@@ -218,7 +218,7 @@ public class BookAction extends CrudActionSupport<Book> {
 		List randList = bookService.randomBooks("5");
 		// 谁读这本书
 		List<ReadRecord> readList = readRecordService.searchReadRecordByParam(
-				"", bookId, "", "5");
+				"", bookId, "", "10");
 		Object rand = bookDoubanService.findScoreByBookId(bookId);
 		//查询书籍评论
 		List<ReadRecord> readComment = readRecordService.searchReadRecordByParam(
@@ -242,10 +242,6 @@ public class BookAction extends CrudActionSupport<Book> {
 	*/
 	public String searchKey() throws Exception {
 		String keyword = getParameter("s");
-		if(!StringHelper.isContainsChinese(keyword)){
-			keyword=new String(keyword.getBytes("iso8859-1"),"UTF-8");
-		}
-		System.out.println(keyword);
 		pager = this.getPage();
 		savePage(bookService.searchBooksByKeyword(pager, keyword));
 		getRequest().setAttribute("user", user);
@@ -283,7 +279,7 @@ public class BookAction extends CrudActionSupport<Book> {
 		List randList = bookService.randomBooks("5");
 		// 谁读这本书
 		List<ReadRecord> readList = readRecordService.searchReadRecordByParam(
-				"", bookId, "", "5");
+				"", bookId, "", "10");
 		Object rand = bookDoubanService.findScoreByBookId(bookId);
 		//查询书籍评论
 		List<ReadRecord> readComment = readRecordService.searchReadRecordByParam(
@@ -299,6 +295,79 @@ public class BookAction extends CrudActionSupport<Book> {
 		return "view1";
 	}
 
+	/**
+	 * TODO(保存书籍信息)
+	 * @return
+	 * @throws IOException 
+	 * @throws Exception
+	*/
+	public void saveInfo() throws IOException{
+		logger.info("------------ book begin saveInfo ------------");
+		String bookName = getParameter("bookName");
+		String author = getParameter("author");
+		String translator = getParameter("translator");
+		String drawor = getParameter("drawor");
+		String editor = getParameter("editor");
+		String isbn10 = getParameter("isbn10");
+		String isbn13 = getParameter("isbn13");
+		String pages = getParameter("pages");
+		String authorIntro = getParameter("authorIntro");
+		String publisher = getParameter("publisher");
+		String pubdate = getParameter("pubdate");
+		String summary = getParameter("summary");
+		String price = getParameter("price");
+		String smallImages = getParameter("smallImages");
+		String largeImages = getParameter("largeImages");
+		String mediumImages = getParameter("mediumImages");
+		String images = getParameter("images");
+		String dbTags = getParameter("dbTags");
+		String schoolTags = getParameter("schoolTags");
+//		String content = getParameter("content");
+		String type = getParameter("type");
+		String recommend = getParameter("recommend");
+		String subject = getParameter("subject");
+		String grade = getParameter("grade");
+		
+		Book books = new Book();
+		
+		books.setAuthor(author);
+		books.setTranslator(translator);
+		books.setDrawor(drawor);
+		books.setEditor(editor);
+		books.setAuthorIntro(authorIntro);
+		books.setBookName(bookName);
+		books.setCreateTime(TimeHelper.getCurrentTime());
+		books.setIsbn10(isbn10);
+		books.setIsbn13(isbn13);
+		books.setPages(pages);
+		books.setImages(images);
+		books.setSmallImages(smallImages);
+		books.setLargeImages(largeImages);
+		books.setMediumImages(mediumImages);
+		books.setPrice(price);
+		books.setPubdate(pubdate);
+		books.setPublisher(publisher);
+		books.setSummary(summary);
+		books.setDbTags(dbTags);
+		books.setSchoolTags(schoolTags);
+		books.setRecommend(recommend);
+		books.setType(type);
+		books.setSubject(subject);
+		books.setGrade(grade);
+		Boolean isRepeat = bookService.getBookByIsbn13(isbn13);
+		if(isRepeat&&!StringHelper.isEmptyObject(bookName)){
+			bookService.save(books);
+			//保存成功
+			getResponse().getWriter().write("{\"msg\":\"0\"}");
+			System.out.println("success");
+		}else{
+			//保存失败
+			getResponse().getWriter().write("{\"msg\":\"1\"}");
+			System.out.println("error");
+		}
+		logger.info("------------ book end saveInfo------------");
+	}
+	
 	@Override
 	public String delete() throws Exception {
 		return LIST;
@@ -325,5 +394,5 @@ public class BookAction extends CrudActionSupport<Book> {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-
+	
 }

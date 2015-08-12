@@ -34,11 +34,11 @@
 					<c:forEach items="${pager.result}" var="book">
 						<div class="tlst" style="border-bottom: 1px dashed #DDD;margin-bottom:10px;padding-bottom: 25px;" >
 							<div class="ilst">
-								<a href="#" title="${book.bookName}"><img
+								<a href="${ctx}/book/book!view.do?bookId=${book.bookId}" title="${book.bookName}"><img
 									src="${book.smallImages}" alt="${book.bookName}" /></a>
 							</div>
 							<div class="clst">
-								<h2><a href="#">${book.bookName}</a></h2>
+								<h2><a href="${ctx}/book/book!view.do?bookId=${book.bookId}">${book.bookName}</a></h2>
 								<div>作者：<span style="color: #a6a6bf;">${book.author}</span></div>
 								<div>出版社：<span style="color: #a6a6bf;">${book.publisher}</span></div>
 								<div>出版日期：<span style="color: #a6a6bf;">${book.pubdate}</span></div>
@@ -53,20 +53,16 @@
 		</div>
 		<div id="footer">
 			<span id="icp" class="fleft gray-link">
-				&copy; 2005－2015 douban.com, all rights reserved
+				&copy; 2005－2015 psylife, all rights reserved
 			</span>
 			
 			<a href="#" style="display: none;"></a>
 			<span class="fright">
-				<a href="#">关于豆瓣</a>
-				· <a href="#">在豆瓣工作</a>
-				· <a href="#">联系我们</a>
+				<a href="#">联系我们</a>
 				· <a href="#">免责声明</a>    
 				· <a href="#">帮助中心</a>
-				· <a href="#" target="_blank">开发者</a>
 				· <a href="#">图书馆合作</a>
 				· <a href="#">移动应用</a>
-				· <a href="#">豆瓣广告</a>
 			</span>
 		  </div>
 	</div>

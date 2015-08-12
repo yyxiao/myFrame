@@ -13,9 +13,9 @@
 				<li><a href="#aa">学校推荐</a></li>
 				<li><a href="#">按分数</a>
 					<ul>
-						<li><a href="#">10-8分</a></li>
-						<li><a href="#">7-5分</a></li>
-						<li><a href="#">5分以下</a></li>
+						<li><a href="#">5-4分</a></li>
+						<li><a href="#">3-2分</a></li>
+						<li><a href="#">1分以下</a></li>
 					</ul>
 				</li>
 				
@@ -44,6 +44,7 @@
 				</li>
 			</ul>
 		</li>
+		<li><a href="#">测评</a></li>
 		<c:if test="${user!=''&&user!=null}">
 			<li><a href="${ctx}/user/users!view.do">个人主页</a></li>
 			<li><a onclick="login_off();">退出</a></li>

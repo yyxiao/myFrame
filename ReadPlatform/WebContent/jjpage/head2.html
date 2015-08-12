@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>头部</title>
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+</head>
+<body>
+<div id="Header">
+    <div class="LiquidContainer clearfix">
+		<a class="logo" title="17素材" href="#"><img src="image/logo.png" /></a>
+		<div id="main_menu">
+			<div class="topnav">
+				<div class="nav"><a class="link" href="#">首页</a></div>
+				<div class="nav">
+					<a class="link" href="#">分类</a>
+					<ul class="menu">
+						<li><a href="#">学校推荐<em></em></a></li>
+						<li>
+						  <a href="#">按分数<em></em></a>
+							<ul>
+								<li><a href="#">10-8分</a></li>
+								<li><a href="#">7-5分</a></li>
+								<li><a href="#">5分以下</a></li>
+							</ul>
+						
+						</li>
+						<li>
+						 <a href="#">按年级<em></em></a>
+							<ul>
+								<li><a href="#">一、二年级</a></li>
+								<li><a href="#">三、四年级</a></li>
+								<li><a href="#">五、六年级</a></li>
+							</ul>
+						 </li>
+						<li>
+						  <a href="#">按学科<em></em></a>
+							<ul>
+								<li><a href="#">数学</a></li>
+								<li><a href="#">历史</a></li>
+								<li><a href="#">科学</a></li>
+							</ul>
+						</li>
+						<li>
+						  <a href="#">按标签<em></em></a>
+							<ul>
+								<li><a href="#">推理</a></li>
+								<li><a href="#">经典</a></li>
+								<li><a href="#">等等</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			    <div class="nav"><a class="link" href="#">阅读测试</a></div>
+			</div>
+
+		<div class="nav_user">
+			<a rel="nofollow" title="帮助中心" href="#" class="nav tools"><em><img src="image/xt.jpg" width="38" height="38" /></em></a>
+			<ul class="menu">
+				<li class="about">
+					<a rel="nofollow" class="notlogin" href="javascript:void(0);">登录</a>
+					<a rel="nofollow" href="http://www.17sucai.com/signup">退出</a><em></em>
+				</li>
+			</ul>
+		</div>
+        		
+		<div id="Search">
+			<form action="" method="get" class="text">
+				<input type="text" id="" name="keyword" size="27" value="" placeholder="书名、书号、作者、出版社" maxlength="12" />
+				<a id="query_button" href="#" class="lg"><img src="http://www.17sucai.com/static/images/search.gif" width="12" height="12" alt="搜索" /></a>
+			</form>
+		</div><!--Search end-->
+		
+	</div>
+</div><!--Header end-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var $b = $('#query_button'),$i = $('#Search input');
+	
+	$i.keyup(function(e){
+		if(e.keyCode == 13){
+			$b.click();
+		}
+	});
+	$b.click(function(){
+		if($('input[name="keyword"]').val()==""){
+			alert("搜索关键词不能为空");
+			return false;
+		}else{
+			var keyword = $('input[name="keyword"]').val();
+			window.location.href='http://www.17sucai.com/search/s?q='+encodeURI(keyword);
+			return false;
+		}
+	});
+
+});
+</script>
+</body>
+</html>

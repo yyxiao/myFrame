@@ -110,10 +110,6 @@
 											class="ll rating_num " property="v:average"></strong> <span
 											property="v:best" content="10.0"></span>
 									</p>
-									<p class="rating_self font_normal clearbox">
-										( <span class=""> <a href="collections">少于10人评价</a>
-										</span> )
-									</p>
 									<span class="stars5 starstop" title="力荐"></span>
 									<div class="power" style="width: 30px"></div>
 									100.0%<br> 
@@ -188,7 +184,7 @@
 								<span class="">常用的标签</span>
 							</h2>
 							<div class="indent">
-								<c:forTokens items="${book.commonTags}" delims="," var="nameTag">
+								<c:forTokens items="${book.dbTags}" delims="," var="nameTag">
 									<span class=""> <a class="  tag">${nameTag}</a> &nbsp;
 									</span>
 								</c:forTokens>
@@ -308,20 +304,16 @@
 		</div>
 		<div id="footer">
 			<span id="icp" class="fleft gray-link">
-				&copy; 2005－2015 douban.com, all rights reserved
+				&copy; 2005－2015 psylife, all rights reserved
 			</span>
 			
 			<a href="#" style="display: none;"></a>
 			<span class="fright">
-				<a href="#">关于豆瓣</a>
-				· <a href="#">在豆瓣工作</a>
-				· <a href="#">联系我们</a>
+				<a href="#">联系我们</a>
 				· <a href="#">免责声明</a>    
 				· <a href="#">帮助中心</a>
-				· <a href="#" target="_blank">开发者</a>
 				· <a href="#">图书馆合作</a>
 				· <a href="#">移动应用</a>
-				· <a href="#">豆瓣广告</a>
 			</span>
 		  </div>
 		  <div style="display: none;">

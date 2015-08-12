@@ -11,7 +11,7 @@
 	<constant name="struts.configuration.xml.reload" value="true" />
 	<constant name="struts.i18n.encoding" value="utf-8" />
 	<constant name="struts.ui.theme" value="simple" />
-	<constant name="struts.multipart.saveDir" value="UploadFiles/" />
+	<constant name="struts.multipart.saveDir" value="E:\images" />
 	<!-- <constant name="struts.ui.templateDir" value="WEB-INF/template" /> -->
 	<constant name="struts.multipart.maxSize" value="5000000000" />
 	<!-- <constant name="struts.custom.i18n.resources" value="message_zh_CN"></constant> -->	 
