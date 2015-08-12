@@ -70,6 +70,8 @@ public class BookDoubanServiceImpl implements BookDoubanService{
 		JSONObject images = bookObj.getJSONObject("images");
 		//书名
 		bookDouban.setBookName(bookObj.getString("title"));
+		//副标题
+		bookDouban.setSubTitle(bookObj.getString("subtitle"));
 		//作者
 		bookDouban.setAuthor(bookObj.getString("author"));
 		//isbn10

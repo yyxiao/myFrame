@@ -53,13 +53,13 @@ public class BookServiceImpl implements BookService {
 	}
 	
 	@Override
-	public Boolean getBookByIsbn13(String isbn13) throws ServiceException {
+	public Book getBookByIsbn13(String isbn13) throws ServiceException {
 		List<Book> books = bookDao.findBy("isbn13", isbn13);
 		System.out.println(books.size());
-		if (StringHelper.isEmptyList(books)) {
-			return true;
+		if (!StringHelper.isEmptyList(books)) {
+			return books.get(0);
 		}
-		return false;
+		return null;
 	}
 	
 	@Override
@@ -128,6 +128,17 @@ public class BookServiceImpl implements BookService {
 		hql.append(" order by t.createTime desc");
 		Page<Book> books = bookDao.findPage(page,hql.toString());
 		return books;
+	}
+
+	@Override
+	public List searchByName(String name, int pageNo, int pageSize)
+			throws ServiceException {
+		int startNo = pageNo>1?((pageNo-1)*pageSize-1):0;
+		System.out.println(startNo);
+		String sql = "SELECT * FROM `book` WHERE book_name LIKE \"%"
+				+ name + "%\" LIMIT "+startNo+","+pageSize;
+		List bookList = jdbcDAO.findForList(sql);
+		return bookList;
 	}
 
 }

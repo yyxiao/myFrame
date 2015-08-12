@@ -28,52 +28,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var isbn = GetParam("isbn");
-
-            if (isbn != null && isbn.length != 0 && isbn != '') {
-                $("#name").val(isbn);
-                post();
-            }
-
-            $("#search").unbind("click").click(function () {
-                post();
-            });
-
             $("#submit").click(function () {
-
-                //var o = {
-                //    bookName: $("#bookName").val(),
-                //    author: $("#author").val(),
-                //    isbn10: $("#isbn10").val(),
-                //    isbn13: $("#isbn13").val(),
-                //    nums:$("#nums").val(),
-                //    pages: $("#pages").val(),
-                //    authorIntro: $("#authorIntro").val(),
-                //    translator: $("#translator").val(),
-                //    publisher: $("#publisher").val(),
-                //    pubdate: $("#pubdate").val(),
-                //    summary: $("#summary").val(),
-                //    price: $("#price").val(),
-                //    smallImages: $("#smallImages").val(),
-                //    largeImages: $("#largeImages").val(),
-                //    mediumImages: $("#mediumImages").val(),
-                //    images: $("#images").attr("src"),
-                //    dbTags: $("#dbTags").val(),
-                //    content: $("#content").val(),
-                //    subject: $("#subject").val(),
-                //    type: $("#type").val(),
-                //    recommend: $("#recommend").val(),
-                //    drawor: $("#drawor").val(),
-                //    editor: $("#editor").val(),
-                //    schoolTags: $("#schoolTags").val(),
-                //    degree: $("#degree").val(),
-                //    grade: $("#grade").val(),
-
-                //    startAge: $("#startAge").val(),
-                //    endAge: $("#endAge").val(),
-                //    country: $("#country").val(),
-                //    space: $("#space").val(),
-                //};
 
                 var o = getFormJson($(".row > .col-md-5 > .form-horizontal > .form-group > .col-sm-8").children());
                 o["images"] = $("#images").attr("src");
@@ -88,55 +43,11 @@
                             $("#images").attr("src", "");
                             alert("保存成功！");
                         } else if (data.msg == "1") {
-                            alert("该图书已存在！信息已更新");
+                            alert("该图书已存在！");
                         }
                     }
                 });
             });
-
-            function post() {
-
-                var name = $("#name").val();
-
-                CommonPerson.Base.LoadingPic.FullScreenShow();
-
-
-
-                $.ajax({
-                    url: 'http://api.douban.com/v2/book/isbn/:' + name,
-                    timeout: 10000,
-                    type: 'GET',
-                    dataType: 'jsonp',
-                    data: {},
-                    success: function (result) {
-                        fullHide();
-                        $("#bookName").val(result.title);
-                        $("#subTitle").val(result.subtitle);
-                        $("#author").val(result.author);
-                        $("#isbn10").val(result.isbn10);
-                        $("#isbn13").val(result.isbn13);
-                        $("#pages").val(result.pages);
-                        $("#authorIntro").val(result.author_intro);
-                        $("#translator").val(result.translator);
-                        $("#publisher").val(result.publisher);
-                        $("#pubdate").val(result.pubdate);
-                        $("#summary").val(result.summary);
-                        $("#price").val(result.price);
-                        $("#smallImages").val(result.images.small);
-                        $("#largeImages").val(result.images.large);
-                        $("#mediumImages").val(result.images.medium);
-                        $("#dbTags").val(getTagsText(result.tags));
-                        //$("#content").val(result.title);
-                        $("#images").attr("src", result.image);
-                    },
-                    complete: function (XMLHttpRequest, status) {
-                        if (status == 'timeout') {
-                            alert("请求超时,请刷新重试...");
-                            fullHide();
-                        }
-                    }
-                });
-            };
 
             function getTagsText(tags) {
 
@@ -184,15 +95,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input id="name" type="text" class="form-control" placeholder="isbn 码" style="width:300px;">
-                </div>
-                <button id="search" type="button" class="btn btn-info">搜索</button>
-            </div>
-        </div>
+    <nav class="navbar navbar-default"><h2>自录入页面</h2>
     </nav>
 
     <div class="container" style="border:1px solid #ddd; margin-top:50px; padding:20px;">
@@ -250,7 +153,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputtext3" class="col-sm-4 control-label">isbn13</label>
+                        <label for="inputtext3" class="col-sm-4 control-label"><font color='red'>isbn13(必填)</font></label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="isbn13" id="isbn13">
                         </div>
@@ -328,12 +231,7 @@
                             <input type="text" class="form-control" name="subject" id="subject">
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="form-horizontal">
-                	<div class="form-group">
+                    <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">难度</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="degree" id="degree">
@@ -345,6 +243,11 @@
                             <input type="text" class="form-control" name="grade" id="grade">
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-horizontal">
                     <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">国家</label>
                         <div class="col-sm-8">
@@ -396,6 +299,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">图像（一般与中等图像的值相等）</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="images" id="images">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">题目</label>
                         <div class="col-sm-8">
                             <textarea class="form-control" rows="3" name="qusAll" id="qusAll" style="height:380px;"></textarea>
@@ -406,12 +315,6 @@
                     </div>
                 </div>
               </div>
-
-            <div class="col-md-2">
-                <div class="imgbox">
-                    <img id="images" />
-                </div>
-            </div>
 
         </div>
     </div>

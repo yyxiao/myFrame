@@ -14,6 +14,7 @@ package com.psy.entity;
 public class BookDouban implements java.io.Serializable {
 
 	private String bookName;
+	private String subTitle;
 	private String author;
 	private String isbn10;
 	private String isbn13;
@@ -38,6 +39,12 @@ public class BookDouban implements java.io.Serializable {
 	}
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
+	}
+	public String getSubTitle() {
+		return subTitle;
+	}
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 	public String getAuthor() {
 		return author;

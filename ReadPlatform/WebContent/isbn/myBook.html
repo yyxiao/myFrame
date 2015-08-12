@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Book</title>
+    <title>MyBook</title>
 
     <!-- Bootstrap core CSS -->
     <link href="style/style.css" rel="stylesheet" />
@@ -41,42 +41,8 @@
 
             $("#submit").click(function () {
 
-                //var o = {
-                //    bookName: $("#bookName").val(),
-                //    author: $("#author").val(),
-                //    isbn10: $("#isbn10").val(),
-                //    isbn13: $("#isbn13").val(),
-                //    nums:$("#nums").val(),
-                //    pages: $("#pages").val(),
-                //    authorIntro: $("#authorIntro").val(),
-                //    translator: $("#translator").val(),
-                //    publisher: $("#publisher").val(),
-                //    pubdate: $("#pubdate").val(),
-                //    summary: $("#summary").val(),
-                //    price: $("#price").val(),
-                //    smallImages: $("#smallImages").val(),
-                //    largeImages: $("#largeImages").val(),
-                //    mediumImages: $("#mediumImages").val(),
-                //    images: $("#images").attr("src"),
-                //    dbTags: $("#dbTags").val(),
-                //    content: $("#content").val(),
-                //    subject: $("#subject").val(),
-                //    type: $("#type").val(),
-                //    recommend: $("#recommend").val(),
-                //    drawor: $("#drawor").val(),
-                //    editor: $("#editor").val(),
-                //    schoolTags: $("#schoolTags").val(),
-                //    degree: $("#degree").val(),
-                //    grade: $("#grade").val(),
+                var o = getFormJson($(".row > .col-md-5 > .form-horizontal > .form-group > .col-sm-8 > input"));
 
-                //    startAge: $("#startAge").val(),
-                //    endAge: $("#endAge").val(),
-                //    country: $("#country").val(),
-                //    space: $("#space").val(),
-                //};
-
-                var o = getFormJson($(".row > .col-md-5 > .form-horizontal > .form-group > .col-sm-8").children());
-                o["images"] = $("#images").attr("src");
                 $.ajax({
                     url: '/ReadPlatform/servlet!saveInfo.do',
                     type: 'POST',
@@ -86,9 +52,8 @@
                         if (data.msg == "0") {
                             $(".form-control").attr("value", "");
                             $("#images").attr("src", "");
-                            alert("保存成功！");
                         } else if (data.msg == "1") {
-                            alert("该图书已存在！信息已更新");
+                            alert("该图书已存在！");
                         }
                     }
                 });
@@ -103,15 +68,14 @@
 
 
                 $.ajax({
-                    url: 'http://api.douban.com/v2/book/isbn/:' + name,
+                    url: '/ReadPlatform/servlet!searchByBookId.do',
                     timeout: 10000,
-                    type: 'GET',
+                    type: 'POST',
                     dataType: 'jsonp',
-                    data: {},
+                    data: { bookId: name },
                     success: function (result) {
                         fullHide();
                         $("#bookName").val(result.title);
-                        $("#subTitle").val(result.subtitle);
                         $("#author").val(result.author);
                         $("#isbn10").val(result.isbn10);
                         $("#isbn13").val(result.isbn13);
@@ -128,6 +92,11 @@
                         $("#dbTags").val(getTagsText(result.tags));
                         //$("#content").val(result.title);
                         $("#images").attr("src", result.image);
+
+                        $("#country").val(getTagsText(result.country));
+                        $("#space").val(getTagsText(result.space));
+                        $("#startAge").val(getTagsText(result.startAge));
+                        $("#endAge").val(getTagsText(result.endAge));
                     },
                     complete: function (XMLHttpRequest, status) {
                         if (status == 'timeout') {
@@ -143,7 +112,7 @@
                 var str = "";
 
                 for (var i = 0; i < tags.length; i++) {
-                    str +=  tags[i].name + ",";
+                    str += tags[i].name + ",";
                 }
 
                 return str.substring(0, str.length - 1);
@@ -208,12 +177,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputtext3" class="col-sm-4 control-label">副标题</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name=subTitle id="subTitle">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">作者</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="author" id="author">
@@ -235,12 +198,6 @@
                         <label for="inputtext3" class="col-sm-4 control-label">编者</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="editor" id="editor">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputtext3" class="col-sm-4 control-label">数据录入员</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="inputer" id="inputer">
                         </div>
                     </div>
                     <div class="form-group">
@@ -303,12 +260,12 @@
                             <input type="text" class="form-control" name="mediumImages" id="mediumImages">
                         </div>
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">内容</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="content" id="content">
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">类别</label>
@@ -328,12 +285,7 @@
                             <input type="text" class="form-control" name="subject" id="subject">
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <div class="form-horizontal">
-                	<div class="form-group">
+                    <div class="form-group">
                         <label for="inputtext3" class="col-sm-4 control-label">难度</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="degree" id="degree">
@@ -362,13 +314,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputtext3" class="col-sm-4 control-label">年龄段</label>
+                        <label for="inputtext3" class="col-sm-4 control-label">开始年龄</label>
                         <div class="col-sm-8">
-                        	<select class="form-control" name="ages" id="ages">
-                                <option>6-9</option>
-                                <option>9-12</option>
-                                <option>12-以上</option>
-                            </select>
+                            <input type="text" class="form-control" name="startAge" id="startAge">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">结束年龄</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="endAge" id="endAge">
                         </div>
                     </div>
                     <div class="form-group">
@@ -395,17 +349,196 @@
                             <textarea class="form-control" name="schoolTags" id="schoolTags"></textarea>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-horizontal">
                     <div class="form-group">
-                        <label for="inputtext3" class="col-sm-4 control-label">题目</label>
+                        <label for="inputtext3" class="col-sm-4 control-label">提干 1</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="3" name="qusAll" id="qusAll" style="height:380px;"></textarea>
+                            <input type="text" class="form-control" name="tigan_1" id="tigan_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">A</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_A_1" id="option_A_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">B</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_B_1" id="option_B_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">C</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_C_1" id="option_C_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">D</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_D_1" id="option_D_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">正确答案</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="correct_1" id="correct_1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">提干 2</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="tigan_2" id="tigan_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">A</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_A_2" id="option_A_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">B</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_B_2" id="option_B_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">C</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_C_2" id="option_C_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">D</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_D_2" id="option_D_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">正确答案</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="correct_2" id="correct_2">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">提干 3</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="tigan_3" id="tigan_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">A</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_A_3" id="option_A_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">B</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_B_3" id="option_B_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">C</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_C_3" id="option_C_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">D</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_D_3" id="option_D_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">正确答案</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="correct_3" id="correct_3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">提干 4</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="tigan_4" id="tigan_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">A</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_A_4" id="option_A_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">B</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_B_4" id="option_B_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">C</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_C_4" id="option_C_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">D</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_D_4" id="option_D_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">正确答案</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="correct_4" id="correct_4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">提干 5</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="tigan_5" id="tigan_5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">A</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_A_5" id="option_A_5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">B</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_B_5" id="option_B_5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">C</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_C_5" id="option_C_5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">D</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="option_D_5" id="option_D_5">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtext3" class="col-sm-4 control-label">正确答案</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="correct_5" id="correct_5">
                         </div>
                     </div>
                     <div style="float:right;margin:10px 0 0 0;">
                         <input id="submit" class="btn btn-info" type="submit" value="提 交  >>" style="width:100px;">
                     </div>
                 </div>
-              </div>
+            </div>
 
             <div class="col-md-2">
                 <div class="imgbox">

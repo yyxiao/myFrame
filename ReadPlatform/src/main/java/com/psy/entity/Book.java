@@ -1,13 +1,11 @@
 package com.psy.entity;
 
-// Generated 2015-6-9 10:27:23 by Hibernate Tools 3.2.1.GA
+// Generated 2015-7-22 10:31:35 by Hibernate Tools 3.2.1.GA
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
 import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,25 +18,33 @@ public class Book implements java.io.Serializable {
 
 	private String bookId;
 	private String bookName;
+	private String subTitle;
 	private String author;
+	private String translator;
 	private String drawor;
 	private String editor;
+	private String inputer;
 	private String type;
 	private String recommend;
 	private String subject;
+	private String degree;
+	private String startAge;
+	private String endAge;
+	private String country;
+	private String space;
 	private String grade;
 	private String isbn10;
 	private String isbn13;
+	private String nums;
 	private String pages;
 	private String authorIntro;
-	private String translator;
 	private String dbTags;
 	private String schoolTags;
 	private String publisher;
 	private String pubdate;
 	private String summary;
 	private String price;
-	private byte[] content;
+	private String content;
 	private String images;
 	private String smallImages;
 	private String largeImages;
@@ -49,23 +55,34 @@ public class Book implements java.io.Serializable {
 	public Book() {
 	}
 
-	public Book(String bookName, String author, String translator, String drawor, String editor, 
-			String type, String recommend, String subject, String grade, 
-			String isbn10, String isbn13, String pages, String authorIntro,
+	public Book(String bookName, String subTitle, String author, String translator,
+			String drawor, String editor, String inputer, String type, String recommend,
+			String subject, String degree, String startAge, String endAge,
+			String country, String space, String grade, String isbn10,
+			String isbn13, String nums, String pages, String authorIntro,
 			String dbTags, String schoolTags, String publisher, String pubdate,
-			String summary, String price, byte[] content, String images, String smallImages,
-			String largeImages, String mediumImages, String background, String createTime) {
+			String summary, String price, String content, String images,
+			String smallImages, String largeImages, String mediumImages,
+			String background, String createTime) {
 		this.bookName = bookName;
+		this.subTitle = subTitle;
 		this.author = author;
 		this.translator = translator;
 		this.drawor = drawor;
 		this.editor = editor;
+		this.inputer = inputer;
 		this.type = type;
 		this.recommend = recommend;
 		this.subject = subject;
+		this.degree = degree;
+		this.startAge = startAge;
+		this.endAge = endAge;
+		this.country = country;
+		this.space = space;
 		this.grade = grade;
 		this.isbn10 = isbn10;
 		this.isbn13 = isbn13;
+		this.nums = nums;
 		this.pages = pages;
 		this.authorIntro = authorIntro;
 		this.dbTags = dbTags;
@@ -93,7 +110,7 @@ public class Book implements java.io.Serializable {
 	public void setBookId(String bookId) {
 		this.bookId = bookId;
 	}
-
+	
 	@Column(name = "book_name")
 	public String getBookName() {
 		return this.bookName;
@@ -101,6 +118,15 @@ public class Book implements java.io.Serializable {
 
 	public void setBookName(String bookName) {
 		this.bookName = bookName;
+	}
+	
+	@Column(name = "sub_title")
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
 
 	@Column(name = "author")
@@ -112,9 +138,18 @@ public class Book implements java.io.Serializable {
 		this.author = author;
 	}
 
+	@Column(name = "translator")
+	public String getTranslator() {
+		return this.translator;
+	}
+
+	public void setTranslator(String translator) {
+		this.translator = translator;
+	}
+
 	@Column(name = "drawor")
 	public String getDrawor() {
-		return drawor;
+		return this.drawor;
 	}
 
 	public void setDrawor(String drawor) {
@@ -123,11 +158,20 @@ public class Book implements java.io.Serializable {
 
 	@Column(name = "editor")
 	public String getEditor() {
-		return editor;
+		return this.editor;
 	}
 
 	public void setEditor(String editor) {
 		this.editor = editor;
+	}
+
+	@Column(name = "inputer")
+	public String getInputer() {
+		return inputer;
+	}
+
+	public void setInputer(String inputer) {
+		this.inputer = inputer;
 	}
 
 	@Column(name = "type")
@@ -157,6 +201,51 @@ public class Book implements java.io.Serializable {
 		this.subject = subject;
 	}
 
+	@Column(name = "degree")
+	public String getDegree() {
+		return this.degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+
+	@Column(name = "start_age")
+	public String getStartAge() {
+		return this.startAge;
+	}
+
+	public void setStartAge(String startAge) {
+		this.startAge = startAge;
+	}
+
+	@Column(name = "end_age")
+	public String getEndAge() {
+		return this.endAge;
+	}
+
+	public void setEndAge(String endAge) {
+		this.endAge = endAge;
+	}
+
+	@Column(name = "country")
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Column(name = "space")
+	public String getSpace() {
+		return this.space;
+	}
+
+	public void setSpace(String space) {
+		this.space = space;
+	}
+
 	@Column(name = "grade")
 	public String getGrade() {
 		return this.grade;
@@ -184,6 +273,15 @@ public class Book implements java.io.Serializable {
 		this.isbn13 = isbn13;
 	}
 
+	@Column(name = "nums", length = 60)
+	public String getNums() {
+		return this.nums;
+	}
+
+	public void setNums(String nums) {
+		this.nums = nums;
+	}
+
 	@Column(name = "pages", length = 30)
 	public String getPages() {
 		return this.pages;
@@ -202,15 +300,6 @@ public class Book implements java.io.Serializable {
 		this.authorIntro = authorIntro;
 	}
 
-	@Column(name = "translator")
-	public String getTranslator() {
-		return this.translator;
-	}
-
-	public void setTranslator(String translator) {
-		this.translator = translator;
-	}
-
 	@Column(name = "db_tags", length = 3000)
 	public String getDbTags() {
 		return this.dbTags;
@@ -222,7 +311,7 @@ public class Book implements java.io.Serializable {
 
 	@Column(name = "school_tags", length = 3000)
 	public String getSchoolTags() {
-		return schoolTags;
+		return this.schoolTags;
 	}
 
 	public void setSchoolTags(String schoolTags) {
@@ -266,17 +355,17 @@ public class Book implements java.io.Serializable {
 	}
 
 	@Column(name = "content")
-	public byte[] getContent() {
+	public String getContent() {
 		return this.content;
 	}
 
-	public void setContent(byte[] content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	@Column(name = "images")
 	public String getImages() {
-		return images;
+		return this.images;
 	}
 
 	public void setImages(String images) {
@@ -312,7 +401,7 @@ public class Book implements java.io.Serializable {
 
 	@Column(name = "background")
 	public String getBackground() {
-		return background;
+		return this.background;
 	}
 
 	public void setBackground(String background) {

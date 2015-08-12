@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>BooksList</title>
+    <title>MyBooks</title>
 
     <!-- Bootstrap core CSS -->
     <link href="style/style.css" rel="stylesheet" />
@@ -88,26 +88,24 @@
                 $(".book").empty();
 
                 var o = {
-                    q: Name,
-                    start: Size * Page - Size,
-                    count: Size
+                    bookName: Name,
+                    pageNo: Size * Page - Size,
+                    pageSize: Size
                 };
 
                 CommonPerson.Base.LoadingPic.FullScreenShow();
 
                 $.ajax({
-                    url: 'http://api.douban.com/v2/book/search',
+                    url: '/ReadPlatform/servlet!searchByKey.do',
                     timeout: 180000,
                     type: 'POST',
                     dataType: 'jsonp',
                     data: o,
-                    async:false,
                     success: function (result) {
                         fullHide();
-                        Total = result.total;
-                        $(result.books).each(function (index, book) {
+                        $(result).each(function (index, book) {
                             var ele = $(".templet").clone().removeClass("templet");
-                            ele.find(".col-md-4 > img").attr("src", book.image);
+                            ele.find(".col-md-4 > img").attr("src", book.images);
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .bookName").html(book.title);
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .author").html(book.author[0]);
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .isbn10").html(book.isbn10);
@@ -118,24 +116,7 @@
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .publisher").html(book.publisher);
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .pubdate").html(book.pubdate);
                             ele.find(".col-md-4 > .form-horizontal > .form-group > .price").html(book.price);
-                            //ele.find(".col-md-4 > a").attr("href", "book.html?isbn=" + book.isbn10);
-                            ele.find(".col-md-4 > a").click(function(){
-                            	$.ajax({
-                                    url: '/ReadPlatform/servlet!isRepeat.do',
-                                    type: 'POST',
-                                    dataType: 'json',
-                                    data: {isbn13:book.isbn13},
-                                    success: function (data) {
-                                        if (data.msg == "0") {
-                                        	window.open("book.html?isbn=" + book.isbn10);
-                                        } else if (data.msg == "1") {
-											if(confirm("该图书已存在！是否继续？")){
-												window.open("book.html?isbn=" + book.isbn10);
-                                            }
-                                        }
-                                    }
-                                });
-                            });
+                            ele.find(".col-md-4 > a").attr("href", "book.html?book_id=" + book.book_id);
                             $(".book").append(ele);
                         });
                     },
@@ -168,7 +149,6 @@
                         <input type="text" class="form-control" placeholder="书名" style="width:400px;margin-right:50px;">
                     </div>
                     <button type="reset" class="btn btn-info" id="search">搜索</button>
-                    <a type="reset" target="_Blank" class="btn btn-info" href="addbook.html">添加图书</a>
                 </div>
             </div>
         </div>
@@ -237,10 +217,10 @@
         <ul class="pager">
             <li class="previous disabled">
                 <a onclick="javascript:0;">
-                    <span aria-hidden="true">&larr;</span> Older
+                    <span aria-hidden="true">&larr;</span> 上一页
                 </a>
             </li>
-            <li class="next"><a onclick="javascript:0;">Newer <span aria-hidden="true">&rarr;</span></a></li>
+            <li class="next"><a onclick="javascript:0;">下一页<span aria-hidden="true">&rarr;</span></a></li>
         </ul>
     </div>
 </body>

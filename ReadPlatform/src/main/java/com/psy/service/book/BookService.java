@@ -36,7 +36,7 @@ public interface BookService {
 	 * @param ISBN13
 	 * @return
 	 */
-	public Boolean getBookByIsbn13(String isbn13) throws ServiceException;
+	public Book getBookByIsbn13(String isbn13) throws ServiceException;
 	/**
 	 * 
 	 * 方法描述 : 根据id删除
@@ -90,4 +90,14 @@ public interface BookService {
 	 * @throws ServiceException
 	*/
 	public Page<Book> searchBooksByKeyword(Page<Book> page,String keywords)throws ServiceException;
+	
+	/**
+	 * TODO(通过关键字分页并查询书籍)
+	 * @param name关键字
+	 * @param pageNo页码
+	 * @param pageSize每页显示数量
+	 * @return
+	 * @throws ServiceException
+	*/
+	public List searchByName(String name,int pageNo,int pageSize)throws ServiceException;
 }
